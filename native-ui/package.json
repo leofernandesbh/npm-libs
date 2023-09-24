@@ -1,0 +1,42 @@
+{
+  "name": "@lfsoftwares/native-ui-lf",
+  "version": "0.0.0",
+  "description": "React native UI components library",
+  "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leofernandesbh/npm-libs/tree/main/native-ui"
+  },
+  "keywords": [
+    "lfsoftwares",
+    "lf-softwares",
+    "ui",
+    "react",
+    "native",
+    "react-native",
+    "react-component"
+  ],
+  "scripts": {
+    "commit:main": "cd .. && git add . && git commit -m 'library updated' && git push origin main",
+    "prebuild": "sudo rm -rf dist",
+    "build": "tsc -p .",
+    "pub": "npm run build && npm version patch --force && npm publish --access public",
+    "postpub": "echo 'package has been published'"
+  },
+  "devDependencies": {
+    "@expo/vector-icons": "^13.0.0",
+    "@types/react": "^18.2.22",
+    "react": "^18.2.0",
+    "react-native": "^0.72.4",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@expo/vector-icons": "*",
+    "@types/react": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}
