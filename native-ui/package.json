@@ -1,6 +1,6 @@
 {
-  "name": "@lfsoftwares/native-ui-lf",
-  "version": "0.0.0",
+  "name": "@lfsoftwares/native-ui-test",
+  "version": "0.0.1",
   "description": "React native UI components library",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",

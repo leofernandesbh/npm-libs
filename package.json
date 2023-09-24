@@ -1,0 +1,10 @@
+{
+  "name": "@lfsoftwares/npm-libs",
+  "version": "1.0.0",
+  "description": "React native components libraries",
+  "scripts": {
+   "commit:main": "git add . && git commit -m 'libraries updated' && git push origin main"
+  },
+  "author": "LFSoftwares",
+  "license": "MIT"
+}
