@@ -1,8 +1,8 @@
 import {
-  EMCThemeFontSizesProps
+  RNThemeFontSizesProps
 } from '../theme.types'
 
-const EMCFontSizes: EMCThemeFontSizesProps = {
+const FontSizes: RNThemeFontSizesProps = {
   '2xs': 11,
   xs: 12.5,
   sm: 14,
@@ -17,4 +17,4 @@ const EMCFontSizes: EMCThemeFontSizesProps = {
   '7xl': 34  
 }
 
-export default EMCFontSizes
+export default FontSizes

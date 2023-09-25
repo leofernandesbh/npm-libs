@@ -1,5 +1,5 @@
 import { Pressable, StyleProp, ViewProps } from 'react-native'
-import { makeBaseEMCButtonStyle } from '../../styles/styles'
+import { makeBaseButtonStyle } from '../../styles/styles'
 import { CustomButtonProps } from '../../styles/ui-components.types'
 import RNBox from '../RNBox'
 import RNText from '../RNText'
@@ -9,7 +9,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 
 const RNButton = (props: CustomButtonProps) => {
-  const baseStyle: StyleProp<ViewProps> = makeBaseEMCButtonStyle(props)  
+  const baseStyle: StyleProp<ViewProps> = makeBaseButtonStyle(props)  
 
   const loadingComponent = () => {
     return (

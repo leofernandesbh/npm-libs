@@ -1,8 +1,18 @@
 import {
-  EMCThemeSizesProps
+  RNThemeSizesProps
 } from '../theme.types'
 
-const EMCSizes: EMCThemeSizesProps = {
+const Sizes: RNThemeSizesProps = {
+  0.5: 2,
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 20,
+  6: 24,
+  7: 28,
+  8: 32,
+  9: 36,  
   10: 40,
   11: 44,
   12: 48,
@@ -68,4 +78,4 @@ const EMCSizes: EMCThemeSizesProps = {
   90: 360,
 }
 
-export default EMCSizes
+export default Sizes

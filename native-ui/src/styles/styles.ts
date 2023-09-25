@@ -278,7 +278,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
   }
 }
 
-export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
+export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
   return {
     position: props.position,
     left: props.left,
@@ -287,7 +287,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.bg ?? Colors.blue[400],
+    backgroundColor: props.bg ?? Colors.emerald[700],
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 14),
     minWidth: dimensionCalculate(props.minW),

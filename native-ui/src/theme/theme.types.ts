@@ -1,22 +1,12 @@
-export type EMCThemeColorProps = {
-  white: string
-  light: {
+export type RNThemeColorProps = {
+  white: string,
+  black: string,
+  lightText: string,
+  darkText: string,
+  cursor: string,
+  danger: {
     50: string
     100: string
-    300: string
-    200: string
-    400: string
-  }
-  blue: {
-    200: string
-    300: string
-    400: string
-  }
-  info: {
-    700: string
-  }
-  gray: {
-    50: string
     200: string
     300: string
     400: string
@@ -25,44 +15,298 @@ export type EMCThemeColorProps = {
     700: string
     800: string
     900: string
-  }
-  blueGray: {
-    200: string
-    400: string
-    600: string
-  }
-  success: {
-    500: string
-    700: string
-  }  
-  warning: {
-    400: string
-    500: string
-    600: string
-  }
-  red: {
-    400: string
-    500: string
-    600: string
-  }
-  danger: {
-    500: string
-    600: string
-  }
-  amber: {
-    300: string
-    400: string
-    600: string
-  }
-  muted: {
-    200: string
-    300: string
   },
-  whatsapp: string
-  cursor: string
+  pink: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  fuchsia: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  purple: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  violet: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  indigo: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  blue: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  lightBlue: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  darkBlue: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  cyan: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  teal: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  emerald: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  green: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  lime: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  yellow: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  amber: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  orange: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  red: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  warmGray: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  muted: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  gray: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  coolGray: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  blueGray: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  dark: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
+  text: {
+    50: string
+    100: string
+    200: string
+    300: string
+    400: string
+    500: string
+    600: string
+    700: string
+    800: string
+    900: string
+  },
 }
 
-export type EMCThemeFontSizesProps = {
+export type RNThemeFontSizesProps = {
   '2xs': number
   xs: number
   sm: number
@@ -77,7 +321,17 @@ export type EMCThemeFontSizesProps = {
   '7xl': number  
 }
 
-export type EMCThemeSizesProps = {
+export type RNThemeSizesProps = {
+  0.5: number
+  1: number
+  2: number
+  3: number
+  4: number
+  5: number
+  6: number
+  7: number
+  8: number
+  9: number  
   10: number
   11: number
   12: number
