@@ -1,9 +1,9 @@
 import { Pressable, StyleProp, ViewProps } from 'react-native'
 import { makeBaseEMCButtonStyle } from '../../styles/styles'
 import { CustomButtonProps } from '../../styles/ui-components.types'
-import Box from '../RNBox'
-import EMCText from '../RNText'
-import Spinner from '../RNSpinner'
+import RNBox from '../RNBox'
+import RNText from '../RNText'
+import RNSpinner from '../RNSpinner'
 import { DEFAULT_OPACITY_CLICK, DISABLED_OPACITY } from '../../styles/ui-components.consts'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
@@ -13,23 +13,23 @@ const RNButton = (props: CustomButtonProps) => {
 
   const loadingComponent = () => {
     return (
-      <Box
+      <RNBox
         flex={1}
         align='center'
         justify='center'
         opacity={DEFAULT_OPACITY_CLICK}
       >
         {props.loadingText ? (
-          <EMCText fWeight='bold'>{props.loadingText}</EMCText>
+          <RNText fWeight='bold'>{props.loadingText}</RNText>
         ) : (
-          <Spinner color={props.loadingSpinnerColor} />
+          <RNSpinner color={props.loadingSpinnerColor} />
         )}
-      </Box>
+      </RNBox>
     )
   }
 
   const textComponent = () => {
-    return <EMCText 
+    return <RNText 
       fSize={props.titleStyle?.fSize ?? 'md'}
       fColor={props.titleStyle?.fColor ?? Colors.white}
       fWeight={props.titleStyle?.fWeight ?? 'normal'}
@@ -43,7 +43,7 @@ const RNButton = (props: CustomButtonProps) => {
       mb={props.titleStyle?.mb}
       ml={props.titleStyle?.ml}
       mr={props.titleStyle?.mr}
-      opacity={props.titleStyle?.opacity}>{props.title}</EMCText>  
+      opacity={props.titleStyle?.opacity}>{props.title}</RNText>  
   }
 
   return (
