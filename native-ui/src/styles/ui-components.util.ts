@@ -1,7 +1,7 @@
 import { DimensionValue } from 'react-native'
-import { UI_SIZE_MULTIPLIER } from './ui-components.consts'
 import { BorderSizeAcronymes, FontSizeAcronymes } from './ui-components.types'
 import FontSizes from '../theme/FontSizes'
+import { Consts } from '../theme'
 
 export function dimensionCalculate(dimension?: DimensionValue | 'full') {
   if (dimension === 0) return 0
@@ -12,7 +12,7 @@ export function dimensionCalculate(dimension?: DimensionValue | 'full') {
     return '100%'
   } else {
     return typeof dimension === 'number'
-      ? dimension * UI_SIZE_MULTIPLIER
+      ? dimension * Consts.UI_SIZE_MULTIPLIER
       : dimension
   }
 }
@@ -20,7 +20,7 @@ export function dimensionCalculate(dimension?: DimensionValue | 'full') {
 export function iconSizeCalculate(size?: number) {
   if (!size) return
 
-  return size * UI_SIZE_MULTIPLIER
+  return size * Consts.UI_SIZE_MULTIPLIER
 }
 
 export function convertBorderRadius(borderRadius?: BorderSizeAcronymes) {

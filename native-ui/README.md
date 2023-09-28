@@ -48,6 +48,16 @@ pnpm i @lfsoftwares/native-ui
 - **RNSpinner**: implements a native ```ActivityIndicator```
 - **RNSafeArea**: implements a native ```SafeAreaView```
 
+## 4. Theme
+
+- **Colors**: set of color tokens
+- **FontSizes**: text fonts sizes tokens
+- **Sizes**: global size tokens
+
+## 5. Constants
+
+- **Consts**: set of constants used to define the other components
+
 ## 5. Contribution
 
 Feel free to submit a PR if you want to help!

@@ -14,8 +14,7 @@ import {
   convertFontSize,
 } from './ui-components.util'
 import { useMemo } from 'react'
-import { Colors } from '../theme'
-import { DEFAULT_ICON_SIZE, DISABLED_OPACITY } from './ui-components.consts'
+import { Colors, Consts } from '../theme'
 import FontSizes from '../theme/FontSizes'
 
 export const styles = StyleSheet.create({
@@ -186,7 +185,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -195,7 +194,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   const paddingRightCalculate = useMemo(() => {
     if (props.rightIcon) {
       const paddingRight = 
-        (props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE) + 
+        (props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE) + 
         (props.px ? Number(props.px) : 3) + 1
 
       return dimensionCalculate(paddingRight)
@@ -236,7 +235,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -273,7 +272,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -322,7 +321,7 @@ export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewSty
     opacity: props.opacity
       ? props.opacity 
       : props.disabled
-      ? DISABLED_OPACITY 
+      ? Consts.DISABLED_OPACITY 
       : 1,
     overflow: props.overflow,
     zIndex: props.zIndex,

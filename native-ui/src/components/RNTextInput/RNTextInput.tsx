@@ -3,9 +3,8 @@ import { Platform, Pressable, TextInput, TextInputProps } from 'react-native'
 import { makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../RNIcon'
-import { Colors } from '../../theme'
+import { Colors, Consts } from '../../theme'
 import { dimensionCalculate } from '../../styles/ui-components.util'
-import { DEFAULT_ICON_SIZE } from '../../styles/ui-components.consts'
 import RNHStack from '../RNHStack'
 import RNBox from '../RNBox'
 
@@ -84,7 +83,7 @@ import RNBox from '../RNBox'
               <ExpoVectorIcon
                 as={props.rightIcon.icon.as}
                 name={props.rightIcon.icon.name}
-                size={props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE}
+                size={props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
                 color={props.rightIcon.icon.color ?? Colors.gray[500]}
               />
             </Pressable>

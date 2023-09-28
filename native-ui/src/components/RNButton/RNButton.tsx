@@ -4,8 +4,8 @@ import { CustomButtonProps } from '../../styles/ui-components.types'
 import RNBox from '../RNBox'
 import RNText from '../RNText'
 import RNSpinner from '../RNSpinner'
-import { DEFAULT_OPACITY_CLICK, DISABLED_OPACITY } from '../../styles/ui-components.consts'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { Consts } from '../../theme'
 
 
 const RNButton = (props: CustomButtonProps) => {
@@ -17,7 +17,7 @@ const RNButton = (props: CustomButtonProps) => {
         flex={1}
         align='center'
         justify='center'
-        opacity={DEFAULT_OPACITY_CLICK}
+        opacity={Consts.DEFAULT_OPACITY_CLICK}
       >
         {props.loadingText ? (
           <RNText fWeight='bold'>{props.loadingText}</RNText>
@@ -51,19 +51,21 @@ const RNButton = (props: CustomButtonProps) => {
       style={({ pressed }) => [
         baseStyle,
         {
-          opacity: props.disabled 
-            ? DISABLED_OPACITY 
+          opacity: props.disabled
+            ? Consts.DISABLED_OPACITY
             : props.loading || props.noPressedEffect
             ? 1
             : pressed
-            ? DEFAULT_OPACITY_CLICK
+            ? Consts.DEFAULT_OPACITY_CLICK
             : 1,
         },
       ]}
       {...props}
       onPress={props.disabled || props.loading ? undefined : props.onPress}
       onPressIn={props.disabled || props.loading ? undefined : props.onPressIn}
-      onPressOut={props.disabled || props.loading ? undefined : props.onPressOut}
+      onPressOut={
+        props.disabled || props.loading ? undefined : props.onPressOut
+      }
     >
       {props.loading
         ? loadingComponent()

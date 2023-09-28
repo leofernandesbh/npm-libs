@@ -396,3 +396,10 @@ export type RNThemeSizesProps = {
   86: number
   90: number
 }
+
+export type RNThemeConstsProps = {
+  UI_SIZE_MULTIPLIER: number
+  DEFAULT_ICON_SIZE: number
+  DEFAULT_OPACITY_CLICK: number
+  DISABLED_OPACITY: number  
+}
