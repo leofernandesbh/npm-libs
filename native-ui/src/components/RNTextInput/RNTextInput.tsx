@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Platform, Pressable, TextInput, TextInputProps } from 'react-native'
+import { Platform, Pressable, TextInput } from 'react-native'
 import { makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../RNIcon'
@@ -93,4 +93,4 @@ import RNBox from '../RNBox'
     )
   }
 
-  export default forwardRef<TextInputProps, CustomTextInputProps>(RNTextInput)
+  export default forwardRef<TextInput, CustomTextInputProps>(RNTextInput)
