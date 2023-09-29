@@ -12,11 +12,11 @@ import RNBox from '../RNBox'
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
     return (
-      <RNBox flex={props.w ? undefined : 1}>
+      <RNBox w={props.w ? undefined : '100%'}>
         <RNHStack
           align='center'
           justify={!props.readOnly && props.rightIcon ? 'flex-end' : undefined}
-        >      
+        >
           <TextInput
             ref={ref || undefined}
             style={baseStyle}
