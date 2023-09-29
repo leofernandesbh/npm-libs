@@ -6,7 +6,14 @@ import { makeBaseViewStyle } from '../../styles/styles'
 const RNVStack = (props: CustomViewProps) => {
   let baseStyle = props.style ?? makeBaseViewStyle(props)
 
-  return <View style={baseStyle} {...props}>{props.children}</View>
+  return (
+    <View
+      {...props}
+      style={[baseStyle, { flexDirection: 'column' }]}
+    >
+      {props.children}
+    </View>
+  )
 }
 
 export default RNVStack
