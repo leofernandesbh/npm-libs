@@ -13,7 +13,6 @@ import {
   convertBorderRadius,
   convertFontSize,
 } from './ui-components.util'
-import { useMemo } from 'react'
 import { Colors, Consts } from '../theme'
 import FontSizes from '../theme/FontSizes'
 
@@ -128,19 +127,19 @@ export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> 
     }
   }
 
-  const fontSizeNumber = useMemo(() => {
+  const fontSizeNumber = () => {
     return getFontSize()
-  }, [props.fSize])
+  }
 
-  const fontWeight = useMemo(() => {
+  const fontWeight = () => {
     return getFontWeight()    
-  }, [props.fWeight])
+  }
 
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber,
+    fontSize: fontSizeNumber(),
     fontFamily: props.fFamily,
-    fontWeight: fontWeight,    
+    fontWeight: fontWeight(),    
     color: props.fColor ?? Colors.gray[800],
     textAlign: props.textAlign,
     margin: dimensionCalculate(props.m),
@@ -191,7 +190,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
 }
 
 export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
-  const paddingRightCalculate = useMemo(() => {
+  const paddingRightCalculate = () => {
     if (props.rightIcon) {
       const paddingRight = 
         (props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE) + 
@@ -201,7 +200,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     } else {
       return dimensionCalculate(props.px ?? 3)
     }
-  },[props.px, props.rightIcon])
+  }
   
   return {
     fontFamily: props.fFamily,
@@ -215,7 +214,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
     paddingLeft: dimensionCalculate(props.px ?? 3),
-    paddingRight: paddingRightCalculate,
+    paddingRight: paddingRightCalculate(),
     paddingTop: dimensionCalculate(props.pt ?? 3),
     paddingBottom: dimensionCalculate(props.pb ?? 3),
     backgroundColor: props.bg 
@@ -278,6 +277,49 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
 }
 
 export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
+  const variantBgColor = () => {
+    if (!props.variant){
+      return Colors.button
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return Colors.white
+      case 'inactive':
+        return Colors.gray[200]
+      case 'danger':
+        return Colors.danger[600]
+      default:
+        return Colors.button
+    }
+  }
+
+  const variantBorderColor = () => {
+    if (!props.variant){
+      return
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return Colors.button
+      default:
+        return
+    }
+  }
+
+  const variantBorderWidth = () => {
+    if (!props.variant){
+      return 0
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return 2
+      default:
+        return 0
+    }
+  }
+
   return {
     position: props.position,
     left: props.left,
@@ -286,7 +328,7 @@ export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewSty
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.bg ?? Colors.emerald[700],
+    backgroundColor: props.bg ?? variantBgColor(),
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 14),
     minWidth: dimensionCalculate(props.minW),
@@ -307,13 +349,13 @@ export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewSty
     marginRight: dimensionCalculate(props.mr),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    borderWidth: props.bWidth,
+    borderWidth: props.bWidth ?? variantBorderWidth(),
     borderBottomWidth: props.bBottomWidth,
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
     borderLeftWidth: props.bLeftWidth,
     borderRadius: props.rounded ? convertBorderRadius(props.rounded) : convertBorderRadius('md'),
-    borderColor: props.bColor,
+    borderColor: props.bColor ?? variantBorderColor(),
     borderBottomColor: props.bBottomColor,
     borderTopColor: props.bTopColor,
     borderRightColor: props.bRightColor,

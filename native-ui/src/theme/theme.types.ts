@@ -4,6 +4,7 @@ export type RNThemeColorProps = {
   lightText: string,
   darkText: string,
   cursor: string,
+  button: string,
   danger: {
     50: string
     100: string

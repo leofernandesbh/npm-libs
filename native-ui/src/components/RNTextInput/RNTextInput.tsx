@@ -20,6 +20,7 @@ import RNBox from '../RNBox'
           <TextInput
             ref={ref || undefined}
             style={baseStyle}
+            {...props}
             numberOfLines={1}
             autoCorrect={false}
             clearButtonMode={
@@ -67,7 +68,6 @@ import RNBox from '../RNBox'
                 ? 'visible-password'
                 : 'default'
             }
-            {...props}
           />
           {!props.readOnly && props.rightIcon && (
             <Pressable

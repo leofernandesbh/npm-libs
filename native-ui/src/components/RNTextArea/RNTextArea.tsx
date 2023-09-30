@@ -7,9 +7,9 @@ const RNTextArea = (props: CustomTextAreaProps) => {
 
   return (
     <TextInput
-      multiline
       style={baseStyle}
       {...props}
+      multiline
     />
   )
 }

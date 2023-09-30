@@ -8,6 +8,7 @@ const Colors: RNThemeColorProps = {
   lightText: '#FFFFFF',
   darkText: '#000000',
   cursor: '#323238',
+  button: '#047857',
   danger: {
     50: '#fff1f2',
     100: '#ffe4e6',

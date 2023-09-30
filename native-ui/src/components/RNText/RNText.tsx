@@ -7,10 +7,10 @@ const RNText = (props: CustomTextProps) => {
 
   return (
     <Text
-      style={baseStyle}
       maxFontSizeMultiplier={props.noAccessibility ? 1 : undefined}
-      numberOfLines={props.wordWrap ? undefined : 1}
+      style={baseStyle}
       {...props}
+      numberOfLines={props.wordWrap ? undefined : 1}
     >
       {props.children}
     </Text>

@@ -44,6 +44,8 @@ type JustifyContentAcronymes =
 
 type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
 
+type ButtonVariants = 'normal' | 'outline' | 'danger' | 'inactive'
+
 export interface CustomViewProps extends ViewProps {
   bg?: ColorValue
   position?: 'absolute' | 'relative'
@@ -218,6 +220,7 @@ export interface CustomImageProps extends ImageProps {
 }
 
 export interface CustomButtonProps extends PressableProps {
+  variant?: ButtonVariants
   title?: string
   titleStyle?: CustomTextProps
   bg?: ColorValue

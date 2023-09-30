@@ -55,9 +55,10 @@ const RNMaskedInput = (props: MaskedInputProps, ref: any) => {
     }
 
     return (
-      <RNBox w="full">
+      <RNBox w='full'>
         <TextInput
           ref={ref || undefined}
+          {...props}
           style={baseStyle}
           numberOfLines={1}
           autoCorrect={false}
@@ -66,10 +67,9 @@ const RNMaskedInput = (props: MaskedInputProps, ref: any) => {
           cursorColor={Colors.cursor}
           selectionColor={undefined}
           editable={!props.readOnly}
-          autoCapitalize="none"
-          keyboardType="number-pad"
+          autoCapitalize='none'
+          keyboardType='number-pad'
           onChangeText={(value) => handleChangeText(value)}
-          {...props}
         />
       </RNBox>
     )

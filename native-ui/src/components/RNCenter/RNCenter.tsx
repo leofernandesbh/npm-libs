@@ -13,7 +13,14 @@ const RNCenter = (props: CustomViewProps) => {
     baseStyle = StyleSheet.compose(baseStyle, styles.center)
   }
 
-  return <View style={baseStyle} {...props}>{props.children}</View>
+  return (
+    <View
+      {...props}
+      style={baseStyle}
+    >
+      {props.children}
+    </View>
+  )
 }
 
 export default RNCenter

@@ -29,25 +29,44 @@ const RNButton = (props: CustomButtonProps) => {
   }
 
   const textComponent = () => {
-    return <RNText 
-      fSize={props.titleStyle?.fSize ?? 'md'}
-      fColor={props.titleStyle?.fColor ?? Colors.white}
-      fWeight={props.titleStyle?.fWeight ?? 'normal'}
-      wordWrap={props.titleStyle?.wordWrap}
-      noAccessibility={props.titleStyle?.noAccessibility}
-      textAlign={props.titleStyle?.textAlign}
-      textTransform={props.titleStyle?.textTransform}
-      w={props.titleStyle?.w}
-      m={props.titleStyle?.m}
-      mt={props.titleStyle?.mt}
-      mb={props.titleStyle?.mb}
-      ml={props.titleStyle?.ml}
-      mr={props.titleStyle?.mr}
-      opacity={props.titleStyle?.opacity}>{props.title}</RNText>  
+    const variantFontColor = () => {
+      if (!props.variant) {
+        return Colors.white
+      }
+
+      switch (props.variant) {
+        case 'outline':
+          return Colors.button
+        default:
+          return Colors.white
+      }
+    }
+
+    return (
+      <RNText
+        fSize={props.titleStyle?.fSize ?? 'md'}
+        fColor={props.titleStyle?.fColor ?? variantFontColor()}
+        fWeight={props.titleStyle?.fWeight ?? 'normal'}
+        wordWrap={props.titleStyle?.wordWrap}
+        noAccessibility={props.titleStyle?.noAccessibility}
+        textAlign={props.titleStyle?.textAlign}
+        textTransform={props.titleStyle?.textTransform}
+        w={props.titleStyle?.w}
+        m={props.titleStyle?.m}
+        mt={props.titleStyle?.mt}
+        mb={props.titleStyle?.mb}
+        ml={props.titleStyle?.ml}
+        mr={props.titleStyle?.mr}
+        opacity={props.titleStyle?.opacity}
+      >
+        {props.title}
+      </RNText>
+    )  
   }
 
   return (
     <Pressable
+      {...props}
       style={({ pressed }) => [
         baseStyle,
         {
@@ -60,7 +79,6 @@ const RNButton = (props: CustomButtonProps) => {
             : 1,
         },
       ]}
-      {...props}
       onPress={props.disabled || props.loading ? undefined : props.onPress}
       onPressIn={props.disabled || props.loading ? undefined : props.onPressIn}
       onPressOut={
