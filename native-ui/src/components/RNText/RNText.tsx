@@ -1,6 +1,6 @@
 import { Text } from 'react-native'
-import { CustomTextProps } from '../../styles/ui-components.types'
-import { makeBaseTextStyle } from '../../styles/styles'
+import { CustomTextProps } from '../../styles/Types/ui-components.types'
+import { makeBaseTextStyle } from '../../styles/styles.factory'
 
 const RNText = (props: CustomTextProps) => {
   const baseStyle = props.style ?? makeBaseTextStyle(props)

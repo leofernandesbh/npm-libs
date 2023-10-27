@@ -1,8 +1,8 @@
 import {
-  RNThemeSizesProps
+    RNThemeSizesProps
 } from '../theme.types'
 
-const Sizes: RNThemeSizesProps = {
+const RNSizes: RNThemeSizesProps = {
   0.5: 2,
   1: 4,
   2: 8,
@@ -78,4 +78,4 @@ const Sizes: RNThemeSizesProps = {
   90: 360,
 }
 
-export default Sizes
+export default RNSizes

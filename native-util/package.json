@@ -1,0 +1,56 @@
+{
+  "name": "@lfsoftwares/native-util",
+  "version": "0.0.1",
+  "description": "Utility library for react native",
+  "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leofernandesbh/npm-libs/tree/main/native-util"
+  },
+  "keywords": [
+    "lfsoftwares",
+    "lf-softwares",
+    "util",
+    "react",
+    "native",
+    "react-native",
+    "react-component"
+  ],
+  "scripts": {
+    "commit:main": "cd .. && git add . && git commit -m 'libraries updated' && git push origin main",
+    "pub:view": "npm run build && npm publish --dry-run",
+    "postpub:view": "echo 'package simulation finalized'",
+    "prebuild": "sudo rm -rf lib",
+    "build": "tsc -p .",
+    "pub:main": "npm run build && npm version patch --force && npm publish --access public",
+    "postpub:main": "echo 'package has been published'"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.22",
+    "react": "^18.2.0",
+    "react-native": "^0.72.4",
+    "typescript": "^5.2.2",
+    "date-fns": "^2.30.0",
+    "expo-clipboard": "~4.3.1",
+    "expo-constants": "~14.4.2",
+    "expo-crypto": "~12.4.1",
+    "expo-device": "~5.4.0",
+    "expo-splash-screen": "~0.20.5",
+    "react-native-format-currency": "^0.0.3"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "react": "*",
+    "react-native": "*",
+    "date-fns": "*",
+    "expo-clipboard": "*",
+    "expo-constants": "*",
+    "expo-crypto": "*",
+    "expo-device": "*",
+    "expo-splash-screen": "*",
+    "react-native-format-currency": "*"
+  }
+}

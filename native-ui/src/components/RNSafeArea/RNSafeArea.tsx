@@ -1,11 +1,11 @@
 import { SafeAreaView } from "react-native";
-import { styles } from "../../styles/styles";
+import { styles } from "../../styles/styles.factory";
 
-interface EMCSafeAreaProps {
+interface RNSafeAreaProps {
   children: React.ReactNode
 }
 
-const RNSafeArea = ({ children }: EMCSafeAreaProps) => {
+const RNSafeArea = ({ children }: RNSafeAreaProps) => {
   return <SafeAreaView style={styles.safeArea}>{children}</SafeAreaView>
 }
 

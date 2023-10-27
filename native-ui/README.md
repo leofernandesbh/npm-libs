@@ -8,60 +8,87 @@
 
 [**LFSoftwares**](https://www.lfsoftwares.com.br/)
 
-## 1. Dependencies
+## 1. Prerequisites
 
-React Native, Expo
+- React Native 
+- Expo
+- [React Navigation](https://reactnavigation.org/docs/getting-started/)
 
-## 2. Install
+## 2. Dependencies (another libraries)
 
-```sh
-npm i @lfsoftwares/native-ui
+- expo-font
+- @expo-google-fonts/roboto (Roboto_400Regular, Roboto_500Medium e Roboto_700Bold)
+- expo-haptics
+- react-native-safe-area-context
+- react-native-calendars
+- date-fns
+- react-native-root-toast
+- react-native-reanimated
+- react-native-gesture-handler
+- lottie-react-native
+
+## 3. Dependencies install
+
+```bash
+npm i @lfsoftwares/native-ui react-native-calendars date-fns react-native-root-toast
 ```
-or
-```sh
-yarn add @lfsoftwares/native-ui
+```bash
+npx expo install expo-font @expo-google-fonts/roboto expo-haptics react-native-safe-area-context
 ```
-or
-```sh
-pnpm i @lfsoftwares/native-ui
+```bash
+npx expo install react-native-reanimated react-native-gesture-handler lottie-react-native
 ```
+- Incluir a linha ``react-native-reanimated/plugin`` nos plugins do arquivo ``babel.config.js``
 
-## 3. Components
+## 4. What's included?
 
-- **RNBox**: implements a native ```View```
-- **RNBoxSafe**: implements a native ```View``` inside a ```SafeAreaView```
-- **RNVStack**: implements a native ```View```
-- **RNVStackSafe**: implements a native ```View``` inside a ```SafeAreaView```
-- **RNHStack**: implements a native ```View``` with horizontal orientation
-- **RNHStackSafe**: implements a native ```View``` with horizontal orientation inside a ```SafeAreaView```
-- **RNCenter**: implements a native ```View``` with centralized orientation
-- **RNCenterSafe**: implements a native ```View``` with centralized orientation inside a ```SafeAreaView```
-- **RNDivider**: thin horizontal line for dividing items on the screen
-- **RNButton**: implements a native ```Pressed``` that can contain another element inside
-- **RNScrollView**: implements a native ```ScrollView``` without vertical scrollbar
-- **RNText**: implements a native ```Text```
-- **RNTextArea**: implements a native ```TextInput``` with multiple line support
-- **RNTextInput**: implements a native ```TextInput```
-- **RNIcon**: displays an icon from any icon family from the ```@expo/vector-icons``` library on the screen
-- **RNMaskedInput**: implements a native ```TextInput``` with automatic mask
-- **RNMessage**: displays a message to the user using the ```Alert.alert``` function
-- **RNSpinner**: implements a native ```ActivityIndicator```
-- **RNSafeArea**: implements a native ```SafeAreaView```
+### Components
 
-## 4. Theme
+- **RNBox**
+- **RNBoxSafe**
+- **RNVStack**
+- **RNVStackSafe**
+- **RNHStack**
+- **RNHStackSafe**
+- **RNCenter**
+- **RNCenterSafe**
+- **RNDivider**
+- **RNButton**
+- **RNCircularButton**
+- **RNScrollView**
+- **RNText**
+- **RNHeadText**
+- **RNTextArea**
+- **RNTextInput**
+- **RNIcon**
+- **RNMaskedInput**
+- **RNMessage**
+- **RNSpinner**
+- **RNSafeArea**
+- **RNDecimalKeyboard**
+- **RNBackground**
+- **RNCalendar**
+- **RNToastModal**
+- **RNDropDown**
+- **RNAvatar**
+- **RNLogo**
+- **RNSwitch**
+- **RNWait**
 
-- **Colors**: set of color tokens
-- **FontSizes**: text fonts sizes tokens
-- **Sizes**: global size tokens
+### Functions
 
-## 5. Constants
+- **showToast**
 
-- **Consts**: set of constants used to define the other components
+## 5. Theme
 
-## 5. Contribution
+- **Colors**
+- **FontSizes**
+- **Sizes**
+
+## 6. Contribution
 
 Feel free to submit a PR if you want to help!
 
-## 6. Licence
+## 7. Licence
 
 Licensed under the MIT License, Copyright © 2023 LFSoftwares. See [LICENCE](https://github.com/leofernandesbh/npm-libs/blob/0b911851e9a8ebe9670b3cb1f23c8277922c6f4f/LICENCE) for more information.

@@ -5,7 +5,7 @@ import {
   ImageProps,
   PressableProps,
   ScrollViewProps, TextInputProps,
-  TextProps, ViewProps
+  TextProps, TouchableOpacityProps, ViewProps
 } from 'react-native'
 
 export type FontSizeAcronymes =
@@ -23,6 +23,13 @@ export type FontSizeAcronymes =
   | '7xl'
   | '8xl'
   | '9xl'
+
+export type FontWeightAcronymes =
+  | 'normal'
+  | 'lightBold'
+  | 'semiBold'
+  | 'bold'
+  | 'extraBold'  
 
 export type BorderSizeAcronymes =
   | 'xs'
@@ -42,9 +49,9 @@ type JustifyContentAcronymes =
   | 'space-around'
   | 'space-evenly'
 
-type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
-
 type ButtonVariants = 'normal' | 'outline' | 'danger' | 'inactive'
+
+type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
 
 export interface CustomViewProps extends ViewProps {
   bg?: ColorValue
@@ -120,7 +127,7 @@ export interface CustomTextProps extends TextProps {
   fSize?: FontSizeAcronymes | number
   fFamily?: string
   fColor?: ColorValue
-  fWeight?: 'normal' | 'lightBold' | 'semiBold' | 'bold' | 'extraBold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+  fWeight?: FontWeightAcronymes
   wordWrap?: boolean
   noAccessibility?: boolean
   textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
@@ -137,7 +144,8 @@ export interface CustomTextProps extends TextProps {
 export interface CustomTextAreaProps extends TextInputProps {
   bg?: ColorValue
   fFamily?: string
-  fSize?: FontSizeAcronymes
+  fWeight?: FontWeightAcronymes
+  fSize?: FontSizeAcronymes | number
   fColor?: ColorValue
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
@@ -160,7 +168,8 @@ export interface CustomTextAreaProps extends TextInputProps {
 export interface CustomTextInputProps extends TextInputProps {
   bg?: ColorValue
   fFamily?: string
-  fSize?: FontSizeAcronymes
+  fWeight?: FontWeightAcronymes
+  fSize?: FontSizeAcronymes | number
   fColor?: ColorValue
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
@@ -222,7 +231,9 @@ export interface CustomImageProps extends ImageProps {
 export interface CustomButtonProps extends PressableProps {
   variant?: ButtonVariants
   title?: string
+  subtitle?: string
   titleStyle?: CustomTextProps
+  subtitleStyle?: CustomTextProps
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue
@@ -268,7 +279,11 @@ export interface CustomButtonProps extends PressableProps {
   loadingText?: string
   loadingTextColor?: ColorValue
   loadingSpinnerColor?: ColorValue
-  noPressedEffect?: boolean  
+  noPressedEffect?: boolean
+  isTablet?: boolean
+  isDialog?: boolean
+  leftIcon?: CustomIconProps
+  rightIcon?: CustomIconProps
 }
 
 export interface CustomScrollViewContainerProps extends ScrollViewProps {
@@ -283,3 +298,24 @@ export interface CustomScrollViewContainerProps extends ScrollViewProps {
   pl?: DimensionValue
   pr?: DimensionValue
 }
+
+interface DecimalKeyboardFooterButtonProps extends TouchableOpacityProps {
+  title: string
+}
+
+export interface CustomDecimalKeyboardProps {
+  currentFieldValue?: string
+  decimals?: number
+  maxLength?: number  
+  slim?: boolean
+  footerButtonDisabled?: boolean
+  aditionalButtonDisabled?: boolean
+  noComma?: boolean
+  readOnly?: boolean
+  noMargim?: boolean
+  isString?: boolean
+  isTablet?: boolean
+  footerButton?: DecimalKeyboardFooterButtonProps
+  aditionalFooterButton?: DecimalKeyboardFooterButtonProps  
+  onChangeFieldValue?(value: string): void
+} 

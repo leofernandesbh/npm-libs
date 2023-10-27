@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react'
 import { Platform, Pressable, TextInput } from 'react-native'
-import { makeBaseTextInputStyle } from '../../styles/styles'
-import { CustomTextInputProps } from '../../styles/ui-components.types'
+import { makeBaseTextInputStyle } from '../../styles/styles.factory'
+import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
 import ExpoVectorIcon from '../RNIcon'
-import { Colors, Consts } from '../../theme'
-import { dimensionCalculate } from '../../styles/ui-components.util'
-import RNHStack from '../RNHStack'
+import { Colors } from '../../theme'
+import { dimensionCalculate } from '../../styles/styles.util'
 import RNBox from '../RNBox'
+import RNHStack from '../RNHStack'
+import Consts from '../../styles/Consts'
 
   const RNTextInput = (props: CustomTextInputProps, ref: any) => {
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
@@ -50,8 +51,7 @@ import RNBox from '../RNBox'
                 : Platform.OS === 'ios' || props.onlyNumbers || props.isDecimal
                 ? false
                 : !!(props.isUpperCase || props.isLowerCase)
-            }
-            keyboardType={
+            }            keyboardType={
               props.isDecimal
                 ? Platform.OS === 'ios'
                   ? 'decimal-pad'

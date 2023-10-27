@@ -1,7 +1,7 @@
 import { View, StyleSheet, ViewStyle, StyleProp } from 'react-native'
 
-import { CustomViewProps } from '../../styles/ui-components.types'
-import { makeBaseViewStyle, styles } from '../../styles/styles'
+import { CustomViewProps } from '../../styles/Types/ui-components.types'
+import { makeBaseViewStyle, styles } from '../../styles/styles.factory'
 
 const RNCenter = (props: CustomViewProps) => {
   let baseStyle: StyleProp<ViewStyle>

@@ -1,17 +1,17 @@
 import React, { forwardRef } from 'react'
 import { TextInput } from 'react-native'
-import { makeBaseMaskedInputStyle } from '../../styles/styles'
-import { CustomTextInputProps } from '../../styles/ui-components.types'
+import { makeBaseMaskedInputStyle } from '../../styles/styles.factory'
+import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
 import RNBox from '../RNBox/RNBox'
 import {
-  INPUT_MASK_TYPES,
-  inputMaskCEP,
-  inputMaskCNPJ,
-  inputMaskCPF,
-  inputMaskCPFCNPJ,
-  inputMaskCurrency,
-  inputMaskNumbers,
-  inputMaskPhone,
+    INPUT_MASK_TYPES,
+    inputMaskCEP,
+    inputMaskCNPJ,
+    inputMaskCPF,
+    inputMaskCPFCNPJ,
+    inputMaskCurrency,
+    inputMaskNumbers,
+    inputMaskPhone,
 } from '../../util/util.masks'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 

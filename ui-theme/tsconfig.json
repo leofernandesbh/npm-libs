@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "target": "ESNext",                                  
+    "module": "ESNext",                                
+    "declaration": true,                            
+    "declarationDir": "lib/types",
+    "sourceMap": true,                              
+    "outDir": "lib",                                
+    "moduleResolution": "node",                     
+    "allowSyntheticDefaultImports": true,
+    "lib": ["DOM", "ESNext"],                            
+    "resolveJsonModule": true,                      
+    "allowJs": true,                                
+    "declarationMap": true,                         
+    "noEmit": false,                                 
+    "esModuleInterop": true,                        
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,           
+    "skipLibCheck": true
+  },
+  "exclude": ["lib", "node_modules", "babel.config.js", "metro.config.js"]
+}

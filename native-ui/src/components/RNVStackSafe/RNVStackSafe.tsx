@@ -1,12 +1,12 @@
-import { CustomViewProps } from '../../styles/ui-components.types'
-import RNSafeArea from '../RNSafeArea'
+import { CustomViewProps } from '../../styles/Types/ui-components.types'
+import SafeArea from '../RNSafeArea'
 import RNVStack from '../RNVStack/RNVStack'
 
 const RNVStackSafe = (props: CustomViewProps) => {
   return (
-    <RNSafeArea>
+    <SafeArea>
       <RNVStack {...props} />
-    </RNSafeArea>
+    </SafeArea>
   )
 }
 

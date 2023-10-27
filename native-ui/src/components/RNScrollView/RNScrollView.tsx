@@ -1,6 +1,6 @@
 import { ScrollView } from 'react-native'
-import { CustomScrollViewContainerProps } from '../../styles/ui-components.types'
-import { makeBaseScrollViewContainerStyle, styles } from '../../styles/styles'
+import { CustomScrollViewContainerProps } from '../../styles/Types/ui-components.types'
+import { makeBaseScrollViewContainerStyle, styles } from '../../styles/styles.factory'
 
 const RNScrollView = (props: CustomScrollViewContainerProps) => {
   const scrollViewContainerStyle = props.contentContainerStyle ?? makeBaseScrollViewContainerStyle(props)

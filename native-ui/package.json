@@ -20,23 +20,36 @@
     "react-component"
   ],
   "scripts": {
-    "commit:main": "cd .. && git add . && git commit -m 'library updated' && git push origin main",
-    "prebuild": "sudo rm -rf dist",
+    "commit:main": "cd .. && git add . && git commit -m 'libraries updated' && git push origin main",
+    "pub:view": "npm run build && npm publish --dry-run",
+    "postpub:view": "echo 'package simulation finalized'",
+    "prebuild": "sudo rm -rf lib",
     "build": "tsc -p .",
-    "pub": "npm run build && npm version patch --force && npm publish --access public",
-    "postpub": "echo 'package has been published'"
+    "postbuild": "cp -r ./src/assets ./lib/src/assets",
+    "pub:main": "npm run build && npm version patch --force && npm publish --access public",
+    "postpub:main": "echo 'package has been published'"
   },
   "devDependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@types/react": "^18.2.22",
+    "date-fns": "^2.30.0",
+    "expo-haptics": "^12.6.0",
+    "lottie-react-native": "^6.3.1",
     "react": "^18.2.0",
     "react-native": "^0.72.4",
+    "react-native-calendars": "^1.1301.0",
+    "react-native-gesture-handler": "^2.13.1",
+    "react-native-reanimated": "^3.5.4",
+    "react-native-root-toast": "^3.5.1",
+    "react-native-safe-area-context": "^4.7.2",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@expo/vector-icons": "*",
     "@types/react": "*",
+    "expo-haptics": "*",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-safe-area-context": "*"
   }
 }

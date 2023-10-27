@@ -1,21 +1,21 @@
 import RNBox from '../RNBox/RNBox'
-import { CustomIconProps } from '../../styles/ui-components.types'
-import { iconSizeCalculate } from '../../styles/ui-components.util'
+import { CustomIconProps } from '../../styles/Types/ui-components.types'
+import { iconSizeCalculate } from '../../styles/styles.util'
 import {
-  AntDesign,
-  Entypo,
-  EvilIcons,
-  Feather,
-  Fontisto,
-  FontAwesome,
-  FontAwesome5,
-  Foundation,
-  Ionicons,
-  MaterialCommunityIcons,
-  MaterialIcons,
-  Octicons,
-  SimpleLineIcons,
-  Zocial,
+    AntDesign,
+    Entypo,
+    EvilIcons,
+    Feather,
+    Fontisto,
+    FontAwesome,
+    FontAwesome5,
+    Foundation,
+    Ionicons,
+    MaterialCommunityIcons,
+    MaterialIcons,
+    Octicons,
+    SimpleLineIcons,
+    Zocial,
 } from '@expo/vector-icons'
 
 const RNIcon = (props: CustomIconProps) => {

@@ -1,7 +1,7 @@
 import { Image } from 'react-native'
 import RNBox from '../RNBox/RNBox'
-import { CustomImageProps } from '../../styles/ui-components.types'
-import { convertBorderRadius, dimensionCalculate } from '../../styles/ui-components.util'
+import { CustomImageProps } from '../../styles/Types/ui-components.types'
+import { convertBorderRadius, dimensionCalculate } from '../../styles/styles.util'
 
 const RNAvatar = (props: CustomImageProps) => {
   return (

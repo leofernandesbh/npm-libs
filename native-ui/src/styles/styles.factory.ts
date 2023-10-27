@@ -1,4 +1,4 @@
-import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
+import { Platform, StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 import {
   CustomDividerProps,
   CustomViewProps,
@@ -7,14 +7,16 @@ import {
   CustomTextInputProps,
   CustomScrollViewContainerProps,
   CustomTextProps
-} from './ui-components.types'
+} from './Types/ui-components.types'
 import {
   dimensionCalculate,
   convertBorderRadius,
   convertFontSize,
-} from './ui-components.util'
-import { Colors, Consts } from '../theme'
-import FontSizes from '../theme/FontSizes'
+  marginCalculate,
+  getFontFamily,
+} from './styles.util'
+import { Colors } from '../theme'
+import Consts from './Consts'
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -77,6 +79,11 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
     opacity: props.opacity,
     overflow: props.overflow,
     zIndex: props.zIndex,
+    shadowColor: props.showShadow ? Colors.black : undefined,
+    shadowOffset: props.showShadow ? { width: -1, height: 5 } : undefined,
+    shadowOpacity: props.showShadow ? 0.4 : undefined,
+    shadowRadius: props.showShadow ? 4 : undefined,
+    elevation: props.showShadow ? 5 : undefined,
   }
 }
 
@@ -85,35 +92,22 @@ export function makeBaseDividerStyle(props: CustomDividerProps): StyleProp<ViewS
     backgroundColor: props.bg ?? Colors.gray[200],
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: 1,
-    margin: dimensionCalculate(props.m),
-    marginHorizontal: dimensionCalculate(props.mx),
-    marginVertical: props.my ? dimensionCalculate(props.my) : 16,
-    marginTop: dimensionCalculate(props.mt),
-    marginBottom: dimensionCalculate(props.mb),
-    marginLeft: dimensionCalculate(props.ml),
-    marginRight: dimensionCalculate(props.mr),
+    marginTop: marginCalculate(props.m, props.my, props.mt),
+    marginBottom: marginCalculate(props.m, props.my, props.mb),
+    marginLeft: marginCalculate(props.m, props.mx, props.ml),
+    marginRight: marginCalculate(props.m, props.mx, props.mr),
   }
 }
 
 export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> {
-  function getFontSize() {
-    if (!props.fSize) {
-      return FontSizes.md
-    }
-
-    if (typeof props.fSize === 'number') {
-      return props.fSize
-    }
-
-    return convertFontSize(props.fSize)
-  }
-
-  function getFontWeight() {
-    if (!props.fWeight || props.fWeight === 'normal') {
-      return 'normal'
+  const fontWeight = () => {
+    if (!props.fFamily) {
+      return undefined
     }
 
     switch (props.fWeight) {
+      case 'normal':
+        return '400'
       case 'lightBold':
         return '500'
       case 'semiBold':
@@ -123,22 +117,14 @@ export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> 
       case 'extraBold':
         return '800'
       default:
-        return props.fWeight 
+        return undefined
     }
-  }
-
-  const fontSizeNumber = () => {
-    return getFontSize()
-  }
-
-  const fontWeight = () => {
-    return getFontWeight()    
   }
 
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber(),
-    fontFamily: props.fFamily,
+    fontSize: convertFontSize(props.fSize),
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontWeight: fontWeight(),    
     color: props.fColor ?? Colors.gray[800],
     textAlign: props.textAlign,
@@ -155,7 +141,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
   return {
     fontSize: convertFontSize(props.fSize),
     color: props.fColor,
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     textAlignVertical: props.textAlignVertical ?? 'top',
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 24),
@@ -203,9 +189,9 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   }
   
   return {
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
-    color: props.fColor,
+    color: props.fColor ?? (props.readOnly && Platform.OS === 'android') ? Colors.gray[700] : undefined,
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 12),
     margin: dimensionCalculate(props.m),
@@ -241,7 +227,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
 
 export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
   return {
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
     color: props.fColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
@@ -276,7 +262,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
   }
 }
 
-export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
+export function makeBaseRNButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
   const variantBgColor = () => {
     if (!props.variant){
       return Colors.button
@@ -320,6 +306,22 @@ export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewSty
     }
   }
 
+  const paddingButtonLeftCalculate = () => {
+      if (props.leftIcon) {
+        return dimensionCalculate(3)
+      } else {
+        return props.pl ? props.pl : props.px ?? 0
+      }
+    }    
+
+    const paddingButtonRightCalculate = () => {
+      if (props.rightIcon) {
+        return dimensionCalculate(3)
+      } else {
+        return props.pr ? props.pr : (props.px ?? 0)
+      }
+    }
+
   return {
     position: props.position,
     left: props.left,
@@ -329,27 +331,26 @@ export function makeBaseButtonStyle(props: CustomButtonProps): StyleProp<ViewSty
     alignItems: 'center',
     justifyContent: 'center',    
     backgroundColor: props.bg ?? variantBgColor(),
-    width: props.w ? dimensionCalculate(props.w) : '100%',
-    height: dimensionCalculate(props.h ?? 14),
+    width: props.w ? dimensionCalculate(props.w) : props.isDialog ? (props.isTablet ? dimensionCalculate(30) : dimensionCalculate(23)) : '100%',
+    height: props.h ? dimensionCalculate(props.h) : props.isDialog ? dimensionCalculate(12) : props.isTablet ? dimensionCalculate(15) : dimensionCalculate(14),
     minWidth: dimensionCalculate(props.minW),
     minHeight: dimensionCalculate(props.minH),
     maxWidth: dimensionCalculate(props.maxW),
     maxHeight: dimensionCalculate(props.maxH),
     padding: dimensionCalculate(props.p ?? 2),
-    paddingHorizontal: dimensionCalculate(props.px),
     paddingVertical: dimensionCalculate(props.py),
     paddingTop: dimensionCalculate(props.pt),
     paddingBottom: dimensionCalculate(props.pb),
-    paddingLeft: dimensionCalculate(props.pl),
-    paddingRight: dimensionCalculate(props.pr),
+    paddingLeft: paddingButtonLeftCalculate(),
+    paddingRight: paddingButtonRightCalculate(),
     margin: dimensionCalculate(props.m),
     marginHorizontal: dimensionCalculate(props.mx),
     marginVertical: dimensionCalculate(props.my),
-    marginLeft: dimensionCalculate(props.ml),
+    marginLeft: (props.ml || props.ml === 0) ? dimensionCalculate(props.ml) : props.isDialog ? dimensionCalculate(4) : undefined,
     marginRight: dimensionCalculate(props.mr),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    borderWidth: props.bWidth ?? variantBorderWidth(),
+    borderWidth: (props.bWidth || props.bWidth === 0) ? props.bWidth : variantBorderWidth(),
     borderBottomWidth: props.bBottomWidth,
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
