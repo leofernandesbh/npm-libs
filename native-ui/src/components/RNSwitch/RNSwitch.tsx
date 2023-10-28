@@ -27,7 +27,7 @@ const RNSwitch = ({ title, onInformationPress, ...rest }: RNSwitchProps) => {
         )}
       </RNHStack>
       <Switch
-        trackColor={{ false: Colors.gray[200], true: Colors.success[700] }}
+        trackColor={{ false: Colors.gray[200], true: Colors.green[700] }}
         ios_backgroundColor={Colors.white}
         {...rest}
       />

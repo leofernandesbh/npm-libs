@@ -156,7 +156,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
     backgroundColor: props.bg 
       ? props.bg
       : props.readOnly 
-      ? Colors.muted[200]
+      ? Colors.neutral[200]
       : Colors.white,
     borderColor: props.noBorder
       ? undefined
@@ -206,7 +206,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     backgroundColor: props.bg 
       ? props.bg
       : props.readOnly 
-      ? Colors.muted[200]
+      ? Colors.neutral[200]
       : Colors.white,
     borderColor: props.noBorder
       ? undefined
@@ -243,7 +243,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
     backgroundColor: props.bg 
       ? props.bg
       : props.readOnly 
-      ? Colors.muted[200]
+      ? Colors.neutral[200]
       : Colors.white,
     borderColor: props.noBorder
       ? undefined
@@ -274,7 +274,7 @@ export function makeBaseRNButtonStyle(props: CustomButtonProps): StyleProp<ViewS
       case 'inactive':
         return Colors.gray[200]
       case 'danger':
-        return Colors.danger[600]
+        return Colors.rose[600]
       default:
         return Colors.button
     }

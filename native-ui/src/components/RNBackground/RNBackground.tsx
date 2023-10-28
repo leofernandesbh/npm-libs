@@ -9,7 +9,7 @@ const RNBackground = ({ children }: BackgroundProps) => {
   return (
     <RNVStack
       flex={1}
-      bg={Colors.light[50]}
+      bg={Colors.slate[50]}
     >
       {children}
     </RNVStack>

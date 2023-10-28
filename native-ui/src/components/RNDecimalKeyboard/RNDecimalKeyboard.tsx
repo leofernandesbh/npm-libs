@@ -310,7 +310,7 @@ const RNDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
                 opacity={props.footerButtonDisabled ? 0.5 : 1}
               >
                 <RNText
-                  fColor={RNColors.light[50]}
+                  fColor={RNColors.slate[50]}
                   fWeight='bold'
                 >
                   {props.footerButton.title}
@@ -343,7 +343,7 @@ const RNDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
                 justify='center'
               >
                 <RNText
-                  fColor={RNColors.light[50]}
+                  fColor={RNColors.slate[50]}
                   fWeight='bold'
                 >
                   {props.aditionalFooterButton.title}

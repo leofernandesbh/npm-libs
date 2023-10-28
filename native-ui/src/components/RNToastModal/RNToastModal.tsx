@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { Platform, StyleSheet } from 'react-native'
 import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withTiming,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from 'react-native-reanimated'
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import RNBox from "../RNBox"
@@ -48,12 +48,12 @@ const RNToastModal = ({
       minHeight: 55,
       backgroundColor:
         variant === 'success'
-          ? Colors.success[700]
+          ? Colors.green[700]
           : variant === 'alert'
-          ? Colors.warning[600]
+          ? Colors.orange[600]
           : variant === 'error'
           ? Colors.red[600]
-          : Colors.info[700],
+          : Colors.blue[700],
     },
   })
 

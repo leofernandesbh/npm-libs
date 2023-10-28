@@ -3,9 +3,9 @@ import RNIcon from '../RNIcon'
 import RNVStack from '../RNVStack'
 import { Colors } from '../../theme'
 import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withSpring,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
 } from 'react-native-reanimated'
 import { CustomIconProps } from '../../styles'
 
@@ -76,7 +76,7 @@ const RNCircularButton = ({
             as={icon.as}
             name={icon.name}
             size={icon.size ?? isTablet ? 9 : 8}
-            color={icon.color ?? Colors.light[50]}
+            color={icon.color ?? Colors.slate[50]}
           />
         </RNVStack>
       </TouchableOpacity>

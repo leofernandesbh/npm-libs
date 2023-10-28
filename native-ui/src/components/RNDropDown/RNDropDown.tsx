@@ -51,7 +51,7 @@ const RNDropDown = ({
           <RNIcon
             as={Feather}
             name='chevron-down'
-            color={disabled ? Colors.light[400] : Colors.gray[800]}
+            color={disabled ? Colors.slate[400] : Colors.gray[800]}
             size={6}
           />
         </RNBox>

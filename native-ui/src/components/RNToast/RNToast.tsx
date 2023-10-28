@@ -26,12 +26,12 @@ const showToast = (text: string, variant: RNToastVariant, timeout?: number) => {
     delay: 0,
     backgroundColor:
       variant === 'success'
-        ? Colors.success[700]
+        ? Colors.green[700]
         : variant === 'alert'
-        ? Colors.warning[600]
+        ? Colors.orange[600]
         : variant === 'error'
         ? Colors.red[600]
-        : Colors.info[700],
+        : Colors.blue[700],
     containerStyle: {
       alignItems: 'flex-start',
       width: Dimensions.get('window').width - 20,

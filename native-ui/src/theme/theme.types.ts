@@ -4,64 +4,270 @@ export type RNThemeColorProps = {
   whatsapp: string
   cursor: string
   button: string
-  light: {
-    50: string
-    100: string
-    300: string
-    200: string
-    400: string
-  }
-  blue: {
-    200: string
-    300: string
-    400: string
-  }
-  info: {
-    700: string
-  }
+  slate: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
   gray: {
-    50: string
-    200: string
-    300: string
-    400: string
-    500: string
-    600: string
-    700: string
-    800: string
-    900: string
-  }
-  blueGray: {
-    200: string
-    400: string
-    600: string
-  }
-  success: {
-    500: string
-    700: string
-  }  
-  warning: {
-    400: string
-    500: string
-    600: string
-  }
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  zinc: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  neutral: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  stone: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
   red: {
-    400: string
-    500: string
-    600: string
-  }
-  danger: {
-    500: string
-    600: string
-  }
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  orange: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
   amber: {
-    300: string
-    400: string
-    600: string
-  }
-  muted: {
-    200: string
-    300: string
-  }  
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  yellow: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  lime: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  green: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  emerald: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  teal: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  cyan: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  sky: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  blue: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  indigo: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  violet: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  purple: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  fuchsia: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  pink: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
+  rose: {
+    50: string,
+    100: string,
+    200: string,
+    300: string,
+    400: string,
+    500: string,
+    600: string,
+    700: string,
+    800: string,
+    900: string,
+  },
 }
 
 export type RNThemeFontSizesProps = {

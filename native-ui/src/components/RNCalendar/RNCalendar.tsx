@@ -115,8 +115,8 @@ const RNCalendar = ({
             }}
             theme={{
               arrowColor: Colors.blue[400],
-              calendarBackground: Colors.light[50],
-              selectedDayBackgroundColor: Colors.light[50],
+              calendarBackground: Colors.slate[50],
+              selectedDayBackgroundColor: Colors.slate[50],
               selectedDayTextColor: Colors.gray[800],
               todayTextColor: Colors.gray[800],
               dayTextColor: Colors.gray[800],
@@ -130,7 +130,7 @@ const RNCalendar = ({
               [currentDaySelected]: {
                 selected: true,
                 selectedColor: Colors.blue[400],
-                selectedTextColor: Colors.light[50],
+                selectedTextColor: Colors.slate[50],
               },
             }}
             onDayPress={(day) => onDateSelect(day.dateString)}

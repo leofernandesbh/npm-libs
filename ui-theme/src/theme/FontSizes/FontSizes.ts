@@ -2,14 +2,16 @@ import {
   RNThemeFontSizesProps
 } from '../theme.types'
 
-const FontSizes: RNThemeFontSizesProps = {
+const RNFontSizes: RNThemeFontSizesProps = {
+  toastPhone: 14.5,
+  toastTablet: 17,
   '2xs': 11,
   xs: 12.5,
   sm: 14,
-  md: 16,
+  md: 15,
   lg: 18,
   xl: 20,
-  '2xl': 24,  
+  '2xl': 22,  
   '3xl': 26,  
   '4xl': 28,  
   '5xl': 30,  
@@ -17,4 +19,4 @@ const FontSizes: RNThemeFontSizesProps = {
   '7xl': 34  
 }
 
-export default FontSizes
+export default RNFontSizes
