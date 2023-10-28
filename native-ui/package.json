@@ -1,6 +1,6 @@
 {
   "name": "@lfsoftwares/native-ui",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "React native UI components library",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",
@@ -23,9 +23,9 @@
     "commit:main": "cd .. && git add . && git commit -m 'libraries updated' && git push origin main",
     "pub:view": "npm run build && npm publish --dry-run",
     "postpub:view": "echo 'package simulation finalized'",
-    "prebuild": "sudo rm -rf lib",
+    "prebuild": "sudo rm -rf dist",
     "build": "tsc -p .",
-    "postbuild": "cp -r ./src/assets ./lib/src/assets",
+    "postbuild": "cp -r ./src/assets ./dist/src/assets",
     "pub:main": "npm run build && npm version patch --force && npm publish --access public",
     "postpub:main": "echo 'package has been published'"
   },

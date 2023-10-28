@@ -1,6 +1,6 @@
 {
   "name": "@lfsoftwares/ui-theme",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Biblioteca de tema das aplicações EMC Sistemas",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "commit:main": "cd .. && git add . && git commit -m 'libraries updated' && git push origin main",
     "pub:view": "npm run build && npm publish --dry-run",
     "postpub:view": "echo 'package simulation finalized'",
-    "prebuild": "sudo rm -rf lib",
+    "prebuild": "sudo rm -rf dist",
     "build": "tsc -p .",
     "pub:main": "npm run build && npm version patch --force && npm publish --access public",
     "postpub:main": "echo 'package has been published'"
