@@ -11,7 +11,7 @@ const RNHStack = (props: CustomViewProps) => {
   return (
     <View
       {...props}
-      style={baseStyle}
+      style={props.align ? [baseStyle, { alignItems: props.align }] : baseStyle}
     >
       {props.children}
     </View>

@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
   },
   hstack: {
     flexDirection: 'row',
-    alignItems: 'center',
   },
   scrollView: {
     width: '100%',
