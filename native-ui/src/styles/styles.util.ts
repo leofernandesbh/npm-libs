@@ -103,16 +103,16 @@ export function getFontFamily(fFamily?: string, fWeight?: FontWeightAcronymes) {
       return fFamily
     }
 
-    let fontFamily = 'Roboto_400Regular'
+    let fontFamily = 'OpenSans_400Regular'
 
     if (!fWeight) {
       return fontFamily
     }
 
     if (fWeight === 'semiBold'){
-      fontFamily = 'Roboto_500Medium'
+      fontFamily = 'OpenSans_500Medium'
     }else if (fWeight === 'bold'){
-      fontFamily = 'Roboto_700Bold'
+      fontFamily = 'OpenSans_600SemiBold'
     }
 
     return fontFamily

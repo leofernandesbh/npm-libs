@@ -17,7 +17,7 @@
 ## 2. Dependencies (another libraries)
 
 - expo-font
-- @expo-google-fonts/roboto (Roboto_400Regular, Roboto_500Medium e Roboto_700Bold)
+- @expo-google-fonts/roboto (OpenSans_400Regular, OpenSans_500Medium e OpenSans_600SemiBold)
 - expo-haptics
 - react-native-safe-area-context
 - react-native-calendars

@@ -126,7 +126,7 @@ export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> 
     fontSize: convertFontSize(props.fSize),
     fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontWeight: fontWeight(),    
-    color: props.fColor ?? Colors.gray[800],
+    color: props.fColor ?? Colors.gray[700],
     textAlign: props.textAlign,
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
