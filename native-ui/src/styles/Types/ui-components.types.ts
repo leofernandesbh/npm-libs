@@ -95,7 +95,8 @@ export interface CustomViewProps extends ViewProps {
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'
   zIndex?: number
-  showShadow?: boolean  
+  showShadow?: boolean
+  gap?: number  
 }
 
 export interface CustomDividerProps extends ViewProps {
@@ -134,6 +135,7 @@ export interface CustomTextProps extends TextProps {
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | undefined
   w?: DimensionValue | 'full'
   m?: number
+  mx?: number
   mt?: number
   mb?: number
   mr?: number

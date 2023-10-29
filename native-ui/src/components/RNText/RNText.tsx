@@ -6,14 +6,14 @@ const RNText = (props: CustomTextProps) => {
   const baseStyle = props.style ?? makeBaseTextStyle(props)
 
   return (
-    <Text
-      maxFontSizeMultiplier={props.noAccessibility ? 1 : undefined}
-      style={baseStyle}
-      {...props}
-      numberOfLines={props.wordWrap ? undefined : 1}
-    >
-      {props.children}
-    </Text>
+      <Text
+        maxFontSizeMultiplier={props.noAccessibility ? 1 : undefined}
+        style={baseStyle}
+        {...props}
+        numberOfLines={props.wordWrap ? undefined : 1}
+      >
+        {props.children}
+      </Text>
   )
 }
 

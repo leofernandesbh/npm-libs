@@ -84,6 +84,7 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
     shadowOpacity: props.showShadow ? 0.4 : undefined,
     shadowRadius: props.showShadow ? 4 : undefined,
     elevation: props.showShadow ? 5 : undefined,
+    gap: props.gap ? props.gap * Consts.UI_SIZE_MULTIPLIER : undefined,
   }
 }
 
@@ -131,8 +132,8 @@ export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> 
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    marginLeft: dimensionCalculate(props.ml),
-    marginRight: dimensionCalculate(props.mr),
+    marginLeft: dimensionCalculate(props.ml ?? props.mx),
+    marginRight: dimensionCalculate(props.mr ?? props.mx),
     textTransform: props.textTransform,
   }
 }
@@ -270,7 +271,7 @@ export function makeBaseRNButtonStyle(props: CustomButtonProps): StyleProp<ViewS
 
     switch (props.variant) {
       case 'outline':
-        return Colors.white
+        return 'transparent'
       case 'inactive':
         return Colors.gray[200]
       case 'danger':
@@ -330,7 +331,7 @@ export function makeBaseRNButtonStyle(props: CustomButtonProps): StyleProp<ViewS
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.bg ?? variantBgColor(),
+    backgroundColor: props.variant === 'outline' ? 'transparent' : props.bg ?? variantBgColor(),
     width: props.w ? dimensionCalculate(props.w) : props.isDialog ? (props.isTablet ? dimensionCalculate(30) : dimensionCalculate(23)) : '100%',
     height: props.h ? dimensionCalculate(props.h) : props.isDialog ? dimensionCalculate(12) : props.isTablet ? dimensionCalculate(15) : dimensionCalculate(14),
     minWidth: dimensionCalculate(props.minW),
