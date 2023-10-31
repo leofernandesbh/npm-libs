@@ -15,7 +15,6 @@ import Consts from '../../styles/Consts'
     return (
       <RNBox w={props.w ? undefined : '100%'}>
         <RNHStack
-          align='center'
           justify={!props.readOnly && props.rightIcon ? 'flex-end' : undefined}
         >
           <TextInput
@@ -51,7 +50,8 @@ import Consts from '../../styles/Consts'
                 : Platform.OS === 'ios' || props.onlyNumbers || props.isDecimal
                 ? false
                 : !!(props.isUpperCase || props.isLowerCase)
-            }            keyboardType={
+            }
+            keyboardType={
               props.isDecimal
                 ? Platform.OS === 'ios'
                   ? 'decimal-pad'
@@ -62,6 +62,8 @@ import Consts from '../../styles/Consts'
                 ? 'phone-pad'
                 : props.onlyNumbers
                 ? 'number-pad'
+                : props.keyboardType
+                ? props.keyboardType
                 : Platform.OS === 'ios'
                 ? 'default'
                 : props.isUpperCase || props.isLowerCase
@@ -74,6 +76,7 @@ import Consts from '../../styles/Consts'
               style={{
                 position: 'absolute',
                 paddingRight: 12,
+                paddingTop: dimensionCalculate(props.mt),
                 paddingBottom: dimensionCalculate(props.mb),
               }}
               onPress={

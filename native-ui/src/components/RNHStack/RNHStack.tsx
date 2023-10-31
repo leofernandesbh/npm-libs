@@ -1,17 +1,18 @@
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 
 import { CustomViewProps } from '../../styles/Types/ui-components.types'
-import { makeBaseViewStyle, styles } from '../../styles/styles.factory'
+import { makeBaseViewStyle } from '../../styles/styles.factory'
 
 const RNHStack = (props: CustomViewProps) => {
-  let baseStyle = props.style
-    ? StyleSheet.compose(props.style, styles.hstack)
-    : StyleSheet.compose(makeBaseViewStyle(props), styles.hstack)
+  const baseStyle = props.style ?? makeBaseViewStyle(props)
 
   return (
     <View
-      {...props}
-      style={props.align ? [baseStyle, { alignItems: props.align }] : baseStyle}
+      style={
+        props.align
+          ? [baseStyle, { flexDirection: 'row' }]
+          : [baseStyle, { flexDirection: 'row', alignItems: 'center' }]
+      }
     >
       {props.children}
     </View>

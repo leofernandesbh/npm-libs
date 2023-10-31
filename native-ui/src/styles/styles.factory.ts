@@ -27,9 +27,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  hstack: {
-    flexDirection: 'row',
-  },
   scrollView: {
     width: '100%',
   }

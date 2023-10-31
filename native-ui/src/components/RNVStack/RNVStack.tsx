@@ -8,7 +8,6 @@ const RNVStack = (props: CustomViewProps) => {
 
   return (
     <View
-      {...props}
       style={[baseStyle, { flexDirection: 'column' }]}
     >
       {props.children}
