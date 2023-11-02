@@ -19,6 +19,8 @@ class LogUtils {
       sequenceMessages = objectMessages.message
     } else if (typeof objectMessages === 'string') {
       sequenceMessages = objectMessages
+    } else {
+      sequenceMessages = JSON.stringify(objectMessages)
     }
 
     return sinalized ? '🟠'.concat(' ', sequenceMessages) : sequenceMessages
