@@ -1,5 +1,9 @@
 
 class LogUtils {
+  private static sinalizeMessage(message: any) {
+    return '🟠'.concat(' ', message)
+  }
+
   private static messageFormat(objectMessages: unknown, sinalized: boolean) {
     let sequenceMessages = ''
 
@@ -10,40 +14,47 @@ class LogUtils {
         sequenceMessages = sequenceMessages.concat(
           prefixSymbol,
           objectMessages[index] instanceof Error
-            ? objectMessages[index].message
-            : objectMessages[index],
+            ? JSON.stringify(objectMessages[index].message)
+            : JSON.stringify(objectMessages[index]),
         )
-        prefixSymbol = ' => '
+
+        prefixSymbol = ' => '        
       }
     } else if (objectMessages instanceof Error) {
-      sequenceMessages = objectMessages.message
-    } else if (typeof objectMessages === 'string') {
-      sequenceMessages = objectMessages
+      sequenceMessages = JSON.stringify(objectMessages.message)
     } else {
       sequenceMessages = JSON.stringify(objectMessages)
     }
 
-    return sinalized ? '🟠'.concat(' ', sequenceMessages) : sequenceMessages
+    return sinalized ? this.sinalizeMessage(sequenceMessages) : sequenceMessages
   }
 
   static log(objectMessage: unknown, sinalized = true) {
+    const formatedMessage = this.messageFormat(objectMessage, sinalized)
+
     console.clear()
-    console.log(this.messageFormat(objectMessage, sinalized))
+    console.log(formatedMessage)
   }
 
   static info(objectMessage: unknown, sinalized = true) {
+    const formatedMessage = this.messageFormat(objectMessage, sinalized)
+
     console.clear()
-    console.info(this.messageFormat(objectMessage, sinalized))
+    console.info(formatedMessage)
   }
 
   static error(objectMessage: unknown, sinalized = true) {
+    const formatedMessage = this.messageFormat(objectMessage, sinalized)
+
     console.clear()
-    console.error(this.messageFormat(objectMessage, sinalized))
+    console.error(formatedMessage)
   }
 
   static warn(objectMessage: unknown, sinalized = true) {
+    const formatedMessage = this.messageFormat(objectMessage, sinalized)
+
     console.clear()
-    console.warn(this.messageFormat(objectMessage, sinalized))
+    console.warn(formatedMessage)
   }
 
   static separator() {
