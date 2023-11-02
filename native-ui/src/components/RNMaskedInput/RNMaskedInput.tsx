@@ -4,14 +4,16 @@ import { makeBaseMaskedInputStyle } from '../../styles/styles.factory'
 import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
 import RNBox from '../RNBox/RNBox'
 import {
-    INPUT_MASK_TYPES,
-    inputMaskCEP,
-    inputMaskCNPJ,
-    inputMaskCPF,
-    inputMaskCPFCNPJ,
-    inputMaskCurrency,
-    inputMaskNumbers,
-    inputMaskPhone,
+  INPUT_MASK_TYPES,
+  inputMaskCEP,
+  inputMaskCNPJ,
+  inputMaskCPF,
+  inputMaskCPFCNPJ,
+  inputMaskCurrency,
+  inputMaskDate,
+  inputMaskNumbers,
+  inputMaskPhone,
+  inputMaskTime,
 } from '../../util/util.masks'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
@@ -46,6 +48,12 @@ const RNMaskedInput = (props: MaskedInputProps, ref: any) => {
             break
           case 'telephone':
             value = inputMaskPhone(value)
+            break
+          case 'date':
+            value = inputMaskDate(value)
+            break
+          case 'time':
+            value = inputMaskTime(value)
             break
         }
         props.onChangeValue(value)

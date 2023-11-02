@@ -124,7 +124,7 @@ class ValidationUtils {
 
   static validateEmail(email?: string) {
     if (!email) {
-      return ''
+      return false
     }
 
     return RegexConsts.REGEX_EMAIL.test(email)

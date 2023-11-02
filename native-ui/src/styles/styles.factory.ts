@@ -204,7 +204,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
       ? props.bg
       : props.readOnly 
       ? Colors.neutral[200]
-      : Colors.white,
+      : undefined,
     borderColor: props.noBorder
       ? undefined
       : props.bColor

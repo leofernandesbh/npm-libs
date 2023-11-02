@@ -6,6 +6,8 @@ type MASK_TYPES =
   | 'cpf'
   | 'cnpj'
   | 'cpfcnpj'
+  | 'date'
+  | 'time'
 
 class MaskUtils { 
   static maskCEP(value: string) {
@@ -71,6 +73,34 @@ class MaskUtils {
 
   static maskNumbers(value: string) {
     value = value.replace(/\D/g, '')
+    return value
+  }  
+
+  static inputMaskDate(value: string) {
+    value = value.replace(/\D/g, '')
+
+    if (value.length > 4) {
+      return value.replace(/^(\d{2})(\d{2})(\d)/, '$1/$2/$3')
+    }
+
+    if (value.length > 2) {
+      return value.replace(/^(\d{2})(\d)/, '$1/$2')
+    }
+
+    return value
+  }
+
+  static inputMaskTime(value: string) {
+    value = value.replace(/\D/g, '')  
+
+    if (value.length > 4) {
+      return value.replace(/^(\d{2})(\d{2})(\d)/, '$1:$2:$3');
+    }
+
+    if (value.length > 2) {
+      return value.replace(/^(\d{2})(\d)/, '$1:$2');
+    }  
+
     return value
   }
 }
