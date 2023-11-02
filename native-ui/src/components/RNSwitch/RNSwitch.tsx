@@ -19,11 +19,11 @@ const RNSwitch = ({ title, fSize, fFamily, fColor, fWeight, onInformationPress, 
   return (
     <>
       <RNHStack align='center'>
-        <RNText 
-          mr={onInformationPress ? 1 : 2} 
-          fSize={fSize} 
-          fFamily={fFamily} 
-          fColor={fColor} 
+        <RNText
+          mr={onInformationPress ? 1 : 2}
+          fSize={fSize}
+          fFamily={fFamily}
+          fColor={fColor}
           fWeight={fWeight}
         >
           {title}
@@ -33,7 +33,7 @@ const RNSwitch = ({ title, fSize, fFamily, fColor, fWeight, onInformationPress, 
             <RNIcon
               as={Ionicons}
               name='information-circle-outline'
-              color={Colors.blue[400]}
+              color={Colors.emerald[700]}
               size={6}
             />
           </Pressable>

@@ -75,11 +75,14 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
     opacity: props.opacity,
     overflow: props.overflow,
     zIndex: props.zIndex,
-    shadowColor: props.showShadow ? Colors.black : undefined,
-    shadowOffset: props.showShadow ? { width: -1, height: 5 } : undefined,
-    shadowOpacity: props.showShadow ? 0.4 : undefined,
-    shadowRadius: props.showShadow ? 4 : undefined,
-    elevation: props.showShadow ? 5 : undefined,
+    shadowColor: props.showShadow ? props.shadowStyle?.color ?? Colors.black : undefined,
+    shadowOffset: props.showShadow ? { 
+      width: props.shadowStyle?.wOffset ?? -1, 
+      height: props.shadowStyle?.hOffset ?? 5 
+    } : undefined,
+    shadowOpacity: props.showShadow ? props.shadowStyle?.opacity ?? 0.4 : undefined,
+    shadowRadius: props.showShadow ? props.shadowStyle?.radius ?? 4 : undefined,
+    elevation: props.showShadow ? props.shadowStyle?.elevation ?? 5 : undefined,
     gap: props.gap ? props.gap * Consts.UI_SIZE_MULTIPLIER : undefined,
   }
 }

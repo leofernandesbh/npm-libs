@@ -1,4 +1,4 @@
-import { Modal, ModalProps, TouchableWithoutFeedback } from 'react-native'
+import { ColorValue, Modal, ModalProps, TouchableWithoutFeedback } from 'react-native'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import { ptBRLocale, ptBRLocalesConfig } from './calendarLocale'
 import { format } from 'date-fns'
@@ -13,6 +13,19 @@ LocaleConfig.locales['pt-BR'] = ptBRLocalesConfig
 interface RNCalendarProps extends ModalProps {
   isTablet?: boolean
   initialDate?: string
+  bColor?: ColorValue
+  themeStyle?: {
+    arrowColor: string
+    calendarBackground: string
+    selectedDayBackgroundColor: string
+    selectedDayTextColor: string
+    todayTextColor: string
+    dayTextColor: string
+  }
+  markDatesStyle?: {
+    selectedColor: string
+    selectedTextColor: string
+  }
   onDateSelect(selectedDate: string): void
   onCancel(): void
 }
@@ -20,6 +33,9 @@ interface RNCalendarProps extends ModalProps {
 const RNCalendar = ({
   isTablet,
   initialDate,
+  bColor,
+  themeStyle,
+  markDatesStyle,
   onDateSelect,
   onCancel,
   ...rest
@@ -110,16 +126,16 @@ const RNCalendar = ({
             style={{
               paddingBottom: 10,
               borderRadius: 8,
-              borderColor: Colors.gray[400],
+              borderColor: bColor ?? Colors.gray[400],
               borderWidth: 1,
             }}
             theme={{
-              arrowColor: Colors.blue[400],
-              calendarBackground: Colors.slate[50],
-              selectedDayBackgroundColor: Colors.slate[50],
-              selectedDayTextColor: Colors.gray[800],
-              todayTextColor: Colors.gray[800],
-              dayTextColor: Colors.gray[800],
+              arrowColor: themeStyle?.arrowColor ?? Colors.emerald[700],
+              calendarBackground: themeStyle?.calendarBackground ?? Colors.slate[50],
+              selectedDayBackgroundColor: themeStyle?.selectedDayBackgroundColor ?? Colors.slate[50],
+              selectedDayTextColor: themeStyle?.selectedDayTextColor ?? Colors.gray[800],
+              todayTextColor: themeStyle?.todayTextColor ?? Colors.gray[800],
+              dayTextColor: themeStyle?.dayTextColor ?? Colors.gray[800],
               textDayFontFamily: getFontFamily(),
               textMonthFontFamily: getFontFamily(),
               textDayHeaderFontFamily: getFontFamily(),
@@ -129,8 +145,8 @@ const RNCalendar = ({
             markedDates={{
               [currentDaySelected]: {
                 selected: true,
-                selectedColor: Colors.blue[400],
-                selectedTextColor: Colors.slate[50],
+                selectedColor: markDatesStyle?.selectedColor ?? Colors.emerald[700],
+                selectedTextColor: markDatesStyle?.selectedTextColor ?? Colors.slate[50],
               },
             }}
             onDayPress={(day) => onDateSelect(day.dateString)}

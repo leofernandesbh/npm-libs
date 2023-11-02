@@ -96,6 +96,14 @@ export interface CustomViewProps extends ViewProps {
   overflow?: 'visible' | 'hidden'
   zIndex?: number
   showShadow?: boolean
+  shadowStyle?: {
+    color?: ColorValue,
+    wOffset?: number,
+    hOffset?: number,
+    opacity?: AnimatableNumericValue,
+    radius?: number,
+    elevation?: number,
+  }  
   gap?: number  
 }
 

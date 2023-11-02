@@ -1,4 +1,4 @@
-import { TouchableOpacityProps, StyleSheet, TouchableOpacity } from 'react-native'
+import { TouchableOpacityProps, StyleSheet, TouchableOpacity, AnimatableNumericValue, ColorValue } from 'react-native'
 import RNIcon from '../RNIcon'
 import RNVStack from '../RNVStack'
 import { Colors } from '../../theme'
@@ -10,7 +10,8 @@ import Animated, {
 import { CustomIconProps } from '../../styles'
 
 interface CircularButtonProps extends TouchableOpacityProps {
-  icon:  CustomIconProps
+  bg?: ColorValue
+  icon: CustomIconProps
   size?: number
   left?: number
   top?: number
@@ -18,9 +19,18 @@ interface CircularButtonProps extends TouchableOpacityProps {
   bottom?: number
   isTablet?: boolean
   showShadow?: boolean
+  shadowStyle?: {
+    color?: ColorValue
+    wOffset?: number
+    hOffset?: number
+    opacity?: AnimatableNumericValue
+    radius?: number
+    elevation?: number
+  }
 }
 
 const RNCircularButton = ({
+  bg,
   icon,
   size,
   left,
@@ -29,6 +39,7 @@ const RNCircularButton = ({
   bottom,
   isTablet,
   showShadow,
+  shadowStyle,
   ...rest
 }: CircularButtonProps) => {
   const styles = StyleSheet.create({
@@ -69,8 +80,9 @@ const RNCircularButton = ({
           rounded='full'
           align='center'
           justify='center'
-          bg={Colors.blue[400]}
+          bg={bg ?? Colors.emerald[700]}
           showShadow={showShadow}
+          shadowStyle={shadowStyle}
         >
           <RNIcon
             as={icon.as}
