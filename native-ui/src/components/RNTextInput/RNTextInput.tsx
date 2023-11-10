@@ -73,12 +73,17 @@ import Consts from '../../styles/Consts'
           />
           {!props.readOnly && props.rightIcon && (
             <Pressable
-              style={{
-                position: 'absolute',
-                paddingRight: 12,
-                paddingTop: dimensionCalculate(props.mt),
-                paddingBottom: dimensionCalculate(props.mb),
-              }}
+              style={({ pressed }) => [
+                {
+                  position: 'absolute',
+                  paddingRight: 12,
+                  paddingTop: dimensionCalculate(props.mt),
+                  paddingBottom: dimensionCalculate(props.mb),
+                  opacity: pressed
+                    ? Consts.DEFAULT_OPACITY_CLICK
+                    : 1,
+                },
+              ]}
               onPress={
                 props.rightIcon.onClick ? props.rightIcon.onClick : undefined
               }
