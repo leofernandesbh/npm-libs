@@ -8,7 +8,6 @@ import { dimensionCalculate } from '../../styles/styles.util'
 import RNBox from '../RNBox'
 import RNHStack from '../RNHStack'
 import Consts from '../../styles/Consts'
-import { Entypo } from '@expo/vector-icons'
 
   const RNTextInput = (props: CustomTextInputProps, ref: any) => {
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
@@ -24,7 +23,11 @@ import { Entypo } from '@expo/vector-icons'
             {...props}
             numberOfLines={1}
             autoCorrect={false}
-            clearButtonMode={'never'}
+            clearButtonMode={
+              props.noClear || props.isPassword || props.rightIcon
+                ? 'never'
+                : 'always'
+            }
             autoComplete={props.autoComplete}
             cursorColor={Colors.cursor}
             selectionColor={undefined}
@@ -85,24 +88,6 @@ import { Entypo } from '@expo/vector-icons'
                 name={props.rightIcon.icon.name}
                 size={props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
                 color={props.rightIcon.icon.color ?? Colors.gray[500]}
-              />
-            </Pressable>
-          )}
-          {!(props.noClear || props.isPassword || props.rightIcon) && (
-            <Pressable
-              style={{
-                position: 'absolute',
-                paddingRight: 12,
-                paddingTop: dimensionCalculate(props.mt),
-                paddingBottom: dimensionCalculate(props.mb),
-              }}
-              onPress={undefined}
-            >
-              <ExpoVectorIcon
-                as={Entypo}
-                name={'circle-with-cross'}
-                size={Consts.DEFAULT_ICON_SIZE}
-                color={Colors.gray[500]}
               />
             </Pressable>
           )}
