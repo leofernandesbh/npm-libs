@@ -3,6 +3,7 @@ import {
   ColorValue,
   DimensionValue,
   ImageProps,
+  ImageSourcePropType,
   PressableProps,
   ScrollViewProps, TextInputProps,
   TextProps, TouchableOpacityProps, ViewProps
@@ -233,9 +234,7 @@ export interface CustomImageProps extends ImageProps {
   bColor?: ColorValue
   bWidth?: number
   rounded?: BorderSizeAcronymes
-  source: {
-    uri: string
-  }
+  source: ImageSourcePropType
 }
 
 export interface CustomButtonProps extends PressableProps {

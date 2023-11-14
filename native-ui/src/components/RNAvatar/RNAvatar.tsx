@@ -28,7 +28,7 @@ const RNAvatar = (props: CustomImageProps) => {
             borderRadius: convertBorderRadius(props.rounded ?? 'full')
         }}
         alt={props.alt}
-        source={{ uri: props.source.uri }}
+        source={props.source}
       />
     </RNBox>
   )
