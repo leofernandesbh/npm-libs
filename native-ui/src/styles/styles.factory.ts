@@ -37,6 +37,8 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
     position: props.position,
     left: props.left,
     top: props.top,
+    right: props.right,
+    bottom: props.bottom,
     flex: props.flex,
     justifyContent: props.justify,
     alignItems: props.align,

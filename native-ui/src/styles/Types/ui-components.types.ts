@@ -59,6 +59,8 @@ export interface CustomViewProps extends ViewProps {
   position?: 'absolute' | 'relative'
   left?: DimensionValue
   top?: DimensionValue
+  right?: DimensionValue
+  bottom?: DimensionValue
   flex?: number
   justify?: JustifyContentAcronymes
   align?: AlignItemsAcronymes
