@@ -8,6 +8,7 @@ import {
   ScrollViewProps, TextInputProps,
   TextProps, TouchableOpacityProps, ViewProps
 } from 'react-native'
+import { INPUT_MASK_TYPES } from '../../util/util.masks'
 
 export type FontSizeAcronymes =
   | '2xs'
@@ -215,6 +216,11 @@ export interface CustomTextInputProps extends TextInputProps {
     showOpacity?: boolean
     onClick?(): void
   }
+}
+
+export interface CustomMaskedInputProps extends CustomTextInputProps {
+  maskType?: INPUT_MASK_TYPES
+  onChangeValue(value: string): void
 }
 
 export interface CustomImageProps extends ImageProps {
