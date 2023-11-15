@@ -72,7 +72,7 @@ const RNButton = (props: CustomButtonProps) => {
         mr={props.titleStyle?.mr}
       >
         <RNText
-          fSize={props.titleStyle?.fSize ?? props.isDialog ? (props.isTablet ? 'md' : 'sm') : props.isTablet ? 'lg' : 'md'}
+          fSize={props.titleStyle?.fSize || (props.isDialog ? (props.isTablet ? 'md' : 'sm') : props.isTablet ? 'lg' : 'md')}
           fColor={props.titleStyle?.fColor ?? variantFontColor()}
           fWeight={props.titleStyle?.fWeight ?? 'bold'}
           wordWrap={props.titleStyle?.wordWrap}

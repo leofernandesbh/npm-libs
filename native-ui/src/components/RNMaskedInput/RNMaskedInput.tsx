@@ -57,11 +57,12 @@ const RNMaskedInput = (props: CustomMaskedInputProps, ref: any) => {
   }
 
   return (
-    <RNBox w='full'>
+    <RNBox w={props.w ? undefined : '100%'}>
       <TextInput
         ref={ref || undefined}
         {...props}
         style={baseStyle}
+        textAlign='center'
         numberOfLines={1}
         autoCorrect={false}
         clearButtonMode={props.noClear ? 'never' : 'always'}

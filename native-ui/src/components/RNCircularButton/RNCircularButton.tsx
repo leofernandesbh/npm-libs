@@ -75,8 +75,8 @@ const RNCircularButton = ({
         {...rest}
       >
         <RNVStack
-          w={size ?? isTablet ? 18 : 16}
-          h={size ?? isTablet ? 18 : 16}
+          w={size || (isTablet ? 18 : 16)}
+          h={size || (isTablet ? 18 : 16)}
           rounded='full'
           align='center'
           justify='center'
@@ -87,7 +87,7 @@ const RNCircularButton = ({
           <RNIcon
             as={icon.as}
             name={icon.name}
-            size={icon.size ?? isTablet ? 9 : 8}
+            size={icon.size || (isTablet ? 9 : 8)}
             color={icon.color ?? Colors.slate[50]}
           />
         </RNVStack>

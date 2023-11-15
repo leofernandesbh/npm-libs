@@ -82,9 +82,9 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
       width: props.shadowStyle?.wOffset ?? -1, 
       height: props.shadowStyle?.hOffset ?? 5 
     } : undefined,
-    shadowOpacity: props.showShadow ? props.shadowStyle?.opacity ?? 0.4 : undefined,
-    shadowRadius: props.showShadow ? props.shadowStyle?.radius ?? 4 : undefined,
-    elevation: props.showShadow ? props.shadowStyle?.elevation ?? 5 : undefined,
+    shadowOpacity: props.showShadow ? (props.shadowStyle?.opacity ?? 0.4) : undefined,
+    shadowRadius: props.showShadow ? (props.shadowStyle?.radius ?? 4) : undefined,
+    elevation: props.showShadow ? (props.shadowStyle?.elevation ?? 5) : undefined,
     gap: props.gap ? props.gap * Consts.UI_SIZE_MULTIPLIER : undefined,
   }
 }
@@ -193,7 +193,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   return {
     fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
-    color: props.fColor ?? (props.readOnly && Platform.OS === 'android') ? Colors.gray[700] : undefined,
+    color: props.fColor ? props.fColor : ((props.readOnly && Platform.OS === 'android') ? Colors.gray[700] : undefined),
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 12),
     margin: dimensionCalculate(props.m),
@@ -332,7 +332,7 @@ export function makeBaseRNButtonStyle(props: CustomButtonProps): StyleProp<ViewS
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.variant === 'outline' ? 'transparent' : props.bg ?? variantBgColor(),
+    backgroundColor: props.variant === 'outline' ? 'transparent' : (props.bg ?? variantBgColor()),
     width: props.w ? dimensionCalculate(props.w) : props.isDialog ? (props.isTablet ? dimensionCalculate(30) : dimensionCalculate(23)) : '100%',
     height: props.h ? dimensionCalculate(props.h) : props.isDialog ? dimensionCalculate(12) : props.isTablet ? dimensionCalculate(15) : dimensionCalculate(14),
     minWidth: dimensionCalculate(props.minW),
