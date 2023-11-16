@@ -162,13 +162,13 @@ const RNButton = (props: CustomButtonProps) => {
       style={({ pressed }) => [
         baseStyle,
         {
-          opacity: props.disabled
+          opacity: props.opacity || (props.disabled
             ? Consts.DISABLED_OPACITY
             : props.loading || props.noPressedEffect
             ? 1
             : pressed
             ? Consts.DEFAULT_OPACITY_CLICK
-            : 1,
+            : 1),
         },
       ]}
       onPress={props.disabled || props.loading ? undefined : props.onPress}
