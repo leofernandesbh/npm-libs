@@ -44,7 +44,6 @@ const RNHeader = (props: RNHeaderProps) => {
 
   return (
     <RNHStack
-      zIndex={1}
       pt={
         props.isModal && Platform.OS === 'android'
           ? 1
