@@ -78,6 +78,30 @@ class RNDateUtils {
 
     return moment(dateTime).format(mask)
   }
+
+  static formatGluedTime(
+    time?: number | string,
+    fullTime = false,
+  ) {
+    if (!time && time !== 0) {
+      return ''
+    }      
+
+    let mask = fullTime ? 'HH:mm:ss' : 'HH:mm'
+    let timeStr = String(time)
+
+    if (timeStr.length < 4) {
+      timeStr = timeStr.padStart(4, '0')
+    }
+
+    if (fullTime && timeStr.length < 6) {
+      timeStr = timeStr.padStart(6, '0')
+    } else if (!fullTime && timeStr.length > 4) {
+      timeStr = timeStr.slice(0, 4)
+    }
+
+    return moment(timeStr, mask).format(mask)
+  }
 }
 
 export default RNDateUtils
