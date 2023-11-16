@@ -1,6 +1,6 @@
 {
   "name": "@lfsoftwares/native-util",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Utility library for react native",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",
@@ -30,12 +30,12 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.22",
-    "date-fns": "^2.30.0",
     "expo-clipboard": "~4.3.1",
     "expo-constants": "~14.4.2",
     "expo-crypto": "~12.4.1",
     "expo-device": "~5.4.0",
     "expo-splash-screen": "~0.20.5",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-native": "^0.72.4",
     "react-native-format-currency": "^0.0.3",
@@ -43,7 +43,6 @@
   },
   "peerDependencies": {
     "@types/react": "*",
-    "date-fns": "*",
     "expo-clipboard": "*",
     "expo-constants": "*",
     "expo-crypto": "*",

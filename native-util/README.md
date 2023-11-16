@@ -27,7 +27,7 @@ pnpm i @lfsoftwares/native-util
 > If you used a package manager other than npm in step 2, also use it in the command below
 
 ```sh
-npm i expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen date-fns react-native-format-currency
+npm i expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen moment react-native-format-currency
 ```
 
 ## 3. What's included?
