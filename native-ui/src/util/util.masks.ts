@@ -90,7 +90,11 @@ export function inputMaskDate(value: string) {
 }
 
 export function inputMaskTime(value: string) {
-  value = value.replace(/\D/g, '')  
+  value = value.replace(/\D/g, '')
+
+  if (value.length === 1 && !['0','1','2'].includes(value)) {
+    return '0' + value
+  }
 
   if (value.length > 4) {
     return value.replace(/^(\d{2})(\d{2})(\d)/, '$1:$2:$3');
@@ -98,7 +102,7 @@ export function inputMaskTime(value: string) {
 
   if (value.length > 2) {
     return value.replace(/^(\d{2})(\d)/, '$1:$2');
-  }  
+  }
 
   return value
 }
