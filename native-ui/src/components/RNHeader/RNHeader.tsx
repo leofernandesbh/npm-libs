@@ -1,13 +1,12 @@
 import { ColorValue, Platform } from "react-native"
-import { Colors } from "../../theme"
-import { FontSizeAcronymes, FontWeightAcronymes, CustomIconProps } from "../../styles"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { Colors } from "react-native/Libraries/NewAppScreen"
+import { FontSizeAcronymes, FontWeightAcronymes, CustomIconProps } from "../../styles"
 import RNBox from "../RNBox"
 import RNHStack from "../RNHStack"
 import RNIcon from "../RNIcon"
 import RNPressable from "../RNPressable"
 import RNSpinner from "../RNSpinner"
-import React from "react"
 import RNText from "../RNText"
 
 type RNHeaderProps = {
@@ -49,11 +48,11 @@ const RNHeader = (props: RNHeaderProps) => {
           ? 1
           : top / 4 + (Platform.OS === 'android' ? 1 : 0)
       }
-      pb={3}
-      px={2}
+      pb={2}
+      px={4}
       mb={4}
       bg={props.bg || Colors.emerald[700]}
-      h={22}
+      h={23}
       w='full'
       justify='center'
     >
