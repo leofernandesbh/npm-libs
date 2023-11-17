@@ -1,6 +1,5 @@
 import { ColorValue, Platform } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
-import { Colors } from "react-native/Libraries/NewAppScreen"
 import { FontSizeAcronymes, FontWeightAcronymes, CustomIconProps } from "../../styles"
 import RNBox from "../RNBox"
 import RNHStack from "../RNHStack"
@@ -8,6 +7,7 @@ import RNIcon from "../RNIcon"
 import RNPressable from "../RNPressable"
 import RNSpinner from "../RNSpinner"
 import RNText from "../RNText"
+import { Colors } from "../../theme"
 
 type RNHeaderProps = {
   centerTitle?: {
