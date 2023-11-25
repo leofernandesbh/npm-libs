@@ -6,7 +6,8 @@ import {
   CustomButtonProps,
   CustomTextInputProps,
   CustomScrollViewContainerProps,
-  CustomTextProps
+  CustomTextProps,
+  CustomPressableProps
 } from './Types/ui-components.types'
 import {
   dimensionCalculate,

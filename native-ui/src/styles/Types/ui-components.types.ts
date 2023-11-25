@@ -336,3 +336,26 @@ export interface CustomDecimalKeyboardProps {
   aditionalFooterButton?: DecimalKeyboardFooterButtonProps  
   onChangeFieldValue?(value: string): void
 } 
+
+export interface CustomPressableProps extends PressableProps {
+  noPressEffect?: boolean
+  position?: 'absolute' | 'relative'
+  left?: DimensionValue
+  top?: DimensionValue
+  right?: DimensionValue
+  bottom?: DimensionValue
+  flex?: number
+  justify?: JustifyContentAcronymes
+  align?: AlignItemsAcronymes
+  w?: DimensionValue | 'full'
+  h?: DimensionValue | 'full'
+  m?: DimensionValue
+  mx?: DimensionValue
+  my?: DimensionValue
+  mt?: DimensionValue
+  mb?: DimensionValue
+  ml?: DimensionValue
+  mr?: DimensionValue
+  rounded?: BorderSizeAcronymes
+  zIndex?: number
+}
