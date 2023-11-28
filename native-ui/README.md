@@ -18,6 +18,7 @@
 
 - expo-font
 - @expo-google-fonts/roboto (OpenSans_400Regular, OpenSans_500Medium e OpenSans_600SemiBold)
+- @expo/react-native-action-sheet
 - expo-haptics
 - react-native-safe-area-context
 - react-native-calendars
@@ -33,7 +34,7 @@
 npm i @lfsoftwares/native-ui react-native-calendars date-fns react-native-root-toast
 ```
 ```bash
-npx expo install expo-font @expo-google-fonts/roboto expo-haptics react-native-safe-area-context
+npx expo install expo-font @expo-google-fonts/roboto @expo/react-native-action-sheet expo-haptics react-native-safe-area-context
 ```
 ```bash
 npx expo install react-native-reanimated react-native-gesture-handler lottie-react-native

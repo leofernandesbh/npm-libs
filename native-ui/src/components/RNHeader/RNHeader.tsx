@@ -1,4 +1,4 @@
-import { ColorValue, Platform } from "react-native"
+import { ColorValue, Platform, TextStyle, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { FontSizeAcronymes, FontWeightAcronymes, CustomIconProps } from "../../styles"
 import RNBox from "../RNBox"
@@ -8,6 +8,9 @@ import RNPressable from "../RNPressable"
 import RNSpinner from "../RNSpinner"
 import RNText from "../RNText"
 import { Colors } from "../../theme"
+import RNActionSheet from "../RNActionSheet"
+import React from "react"
+import { useActionSheet } from "@expo/react-native-action-sheet"
 
 type RNHeaderProps = {
   centerTitle?: {
@@ -34,12 +37,30 @@ type RNHeaderProps = {
     disabled?: boolean
     onPress(): void
   }
+  rightActionSheetOptions?: {
+    actionIcon: CustomIconProps
+    title: string
+    message?: string
+    options: string[]
+    icons?: CustomIconProps[]
+    destructiveButtonIndex?: number
+    withSeparators?: boolean
+    cancelButtonTintColor?: ColorValue
+    textStyle?: TextStyle
+    titleTextStyle?: TextStyle
+    messageTextStyle?: TextStyle
+    containerStyle?: ViewStyle
+    useModal?: boolean
+    onGoBack(): void
+    onActionPress(selectedIndex?: number): void
+  }
   bg?: ColorValue
   isModal?: boolean
 }
 
 const RNHeader = (props: RNHeaderProps) => {
   const { top } = useSafeAreaInsets()
+  const { showActionSheetWithOptions } = useActionSheet()
 
   return (
     <RNHStack
@@ -109,7 +130,36 @@ const RNHeader = (props: RNHeaderProps) => {
         align='center'
         justify='center'
       >
-        {props.rightOption &&
+        {props.rightActionSheetOptions && (
+          <RNActionSheet
+            title={props.rightActionSheetOptions.title}
+            message={props.rightActionSheetOptions.message}
+            options={props.rightActionSheetOptions.options}
+            cancelButtonTintColor={String(
+              props.rightActionSheetOptions.cancelButtonTintColor,
+            )}
+            destructiveButtonIndex={
+              props.rightActionSheetOptions.destructiveButtonIndex
+            }
+            withSeparators={props.rightActionSheetOptions.withSeparators}
+            textStyle={props.rightActionSheetOptions.textStyle}
+            titleTextStyle={props.rightActionSheetOptions.titleTextStyle}
+            messageTextStyle={props.rightActionSheetOptions.messageTextStyle}
+            containerStyle={props.rightActionSheetOptions.containerStyle}
+            useModal={props.rightActionSheetOptions.useModal}
+            onActionSelection={props.rightActionSheetOptions.onActionPress}
+            showActionSheetWithOptions={showActionSheetWithOptions}
+          >
+            <RNIcon
+              as={props.rightActionSheetOptions.actionIcon.as}
+              name={props.rightActionSheetOptions.actionIcon.name}
+              size={props.rightActionSheetOptions.actionIcon.size || 6}
+              color={props.rightActionSheetOptions.actionIcon.color || Colors.white}
+            />
+          </RNActionSheet>
+        )}
+        {!props.rightActionSheetOptions &&
+          props.rightOption &&
           (props.rightOption.loading ? (
             <RNSpinner
               color={Colors.white}

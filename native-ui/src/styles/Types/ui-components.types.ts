@@ -6,8 +6,9 @@ import {
   ImageSourcePropType,
   PressableProps,
   ScrollViewProps, TextInputProps,
-  TextProps, TouchableOpacityProps, ViewProps
+  TextProps, TextStyle, TouchableOpacityProps, ViewProps, ViewStyle
 } from 'react-native'
+import { ActionSheetOptions } from "@expo/react-native-action-sheet"
 import { INPUT_MASK_TYPES } from '../../util/util.masks'
 
 export type FontSizeAcronymes =
@@ -358,4 +359,25 @@ export interface CustomPressableProps extends PressableProps {
   mr?: DimensionValue
   rounded?: BorderSizeAcronymes
   zIndex?: number
+}
+
+export interface CustomActionSheetProps {
+  title: string
+  message?: string
+  options: string[]
+  destructiveButtonIndex?: number
+  icons?: React.ReactNode[]
+  children: React.ReactNode
+  withSeparators?: boolean
+  cancelButtonTintColor?: string
+  textStyle?: TextStyle
+  titleTextStyle?: TextStyle
+  messageTextStyle?: TextStyle
+  containerStyle?: ViewStyle
+  useModal?: boolean
+  showActionSheetWithOptions: (
+    options: ActionSheetOptions,
+    callback: (selectedIndex?: number) => void,
+  ) => void
+  onActionSelection: (index?: number) => void
 }
