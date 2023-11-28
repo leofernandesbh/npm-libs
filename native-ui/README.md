@@ -45,6 +45,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 
 ### Components
 
+- **RNActionSheet**
 - **RNAvatar**
 - **RNBackground**
 - **RNBox**
