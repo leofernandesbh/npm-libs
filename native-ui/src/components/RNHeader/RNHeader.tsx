@@ -51,7 +51,6 @@ type RNHeaderProps = {
     messageTextStyle?: TextStyle
     containerStyle?: ViewStyle
     useModal?: boolean
-    onGoBack(): void
     onActionPress(selectedIndex?: number): void
   }
   bg?: ColorValue
