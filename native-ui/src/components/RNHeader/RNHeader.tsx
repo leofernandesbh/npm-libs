@@ -134,9 +134,9 @@ const RNHeader = (props: RNHeaderProps) => {
             title={props.rightActionSheetOptions.title}
             message={props.rightActionSheetOptions.message}
             options={props.rightActionSheetOptions.options}
-            cancelButtonTintColor={String(
+            cancelButtonTintColor={props.rightActionSheetOptions.cancelButtonTintColor ? String(
               props.rightActionSheetOptions.cancelButtonTintColor,
-            )}
+            ) : undefined}
             destructiveButtonIndex={
               props.rightActionSheetOptions.destructiveButtonIndex
             }
@@ -153,7 +153,9 @@ const RNHeader = (props: RNHeaderProps) => {
               as={props.rightActionSheetOptions.actionIcon.as}
               name={props.rightActionSheetOptions.actionIcon.name}
               size={props.rightActionSheetOptions.actionIcon.size || 6}
-              color={props.rightActionSheetOptions.actionIcon.color || Colors.white}
+              color={
+                props.rightActionSheetOptions.actionIcon.color || Colors.white
+              }
             />
           </RNActionSheet>
         )}
