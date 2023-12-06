@@ -58,6 +58,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **RNDecimalKeyboard**
 - **RNDivider**
 - **RNDropDown**
+- **RNFakeInput**
 - **RNHeader**
 - **RNHeadText**
 - **RNHideKeyboardView**
