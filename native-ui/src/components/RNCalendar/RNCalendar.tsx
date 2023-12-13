@@ -1,11 +1,11 @@
 import { ColorValue, Modal, ModalProps, TouchableWithoutFeedback } from 'react-native'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
-import { ptBRLocale, ptBRLocalesConfig } from './calendarLocale'
 import { format } from 'date-fns'
 import { pt } from 'date-fns/locale'
 import { Colors } from '../../theme'
 import RNVStack from '../RNVStack'
 import { getFontFamily } from '../../styles/styles.util'
+import { ptBRLocale, ptBRLocalesConfig } from '../../util/calendarLocale'
 
 LocaleConfig.defaultLocale = ptBRLocale
 LocaleConfig.locales['pt-BR'] = ptBRLocalesConfig

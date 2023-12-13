@@ -55,6 +55,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **RNCenter**
 - **RNCenterSafe**
 - **RNCircularButton**
+- **RNDaySelect**
 - **RNDecimalKeyboard**
 - **RNDivider**
 - **RNDropDown**
