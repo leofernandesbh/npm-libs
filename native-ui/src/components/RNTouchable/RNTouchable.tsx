@@ -28,6 +28,7 @@ const RNTouchable = (props: CustomTouchableProps) => {
         marginBottom: dimensionCalculate(props.mb),
         zIndex: props.zIndex,
       }}
+      {...props}
     >
       {props.children}
     </TouchableOpacity>
