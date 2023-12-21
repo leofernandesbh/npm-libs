@@ -72,7 +72,6 @@ const RNHeader = (props: RNHeaderProps) => {
       px={4}
       mb={4}
       bg={props.bg || Colors.emerald[700]}
-      h={23}
       w='full'
       justify='center'
     >
@@ -116,7 +115,7 @@ const RNHeader = (props: RNHeaderProps) => {
         )}
         {props.centerSubTitle && (
           <RNText
-            fSize={props.centerSubTitle.fSize || 'xs'}
+            fSize={props.centerSubTitle.fSize || 'md'}
             fColor={props.centerSubTitle.fColor || Colors.white}
             fWeight={props.centerSubTitle.fWeight || 'normal'}
           >
