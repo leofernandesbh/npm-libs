@@ -361,6 +361,29 @@ export interface CustomPressableProps extends PressableProps {
   zIndex?: number
 }
 
+export interface CustomTouchableProps extends TouchableOpacityProps {
+  noPressEffect?: boolean
+  position?: 'absolute' | 'relative'
+  left?: DimensionValue
+  top?: DimensionValue
+  right?: DimensionValue
+  bottom?: DimensionValue
+  flex?: number
+  justify?: JustifyContentAcronymes
+  align?: AlignItemsAcronymes
+  w?: DimensionValue | 'full'
+  h?: DimensionValue | 'full'
+  m?: DimensionValue
+  mx?: DimensionValue
+  my?: DimensionValue
+  mt?: DimensionValue
+  mb?: DimensionValue
+  ml?: DimensionValue
+  mr?: DimensionValue
+  rounded?: BorderSizeAcronymes
+  zIndex?: number
+}
+
 export interface CustomActionSheetProps {
   title: string
   message?: string

@@ -80,6 +80,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **RNTextArea**
 - **RNTextInput**
 - **RNToastModal**
+- **RNTouchable**
 - **RNVStack**
 - **RNVStackSafe**
 - **RNWait**
