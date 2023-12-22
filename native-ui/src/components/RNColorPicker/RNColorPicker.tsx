@@ -47,6 +47,7 @@ interface ColorPickerProps extends Partial<LinearGradientProps> {
   selectorWidth?: number
   selectorHeight?: number
   selectorBorderRadius?: number
+  realTime?: boolean
   pickerIcon?: React.ReactNode
   onColorChanged?: (pickerPosition: number, colorValue: string) => void
 }
@@ -62,6 +63,7 @@ const RNColorPicker = ({
   selectorWidth,
   selectorHeight,
   selectorBorderRadius,
+  realTime,
   pickerIcon,
   onColorChanged,
 }: ColorPickerProps) => {
@@ -94,26 +96,33 @@ const RNColorPicker = ({
     (_, index) => (index / colors.length) * maxWidth,
   )
 
-  const onEnd = useCallback(() => {
+  const onFinish = useCallback(() => {
     'worklet'
 
-    const pickerPosition = translateX.value
+    console.log('ON END')
 
-    translateY.value = withSpring(0)
-    scale.value = withSpring(1)
+    if (!realTime) {
+      const pickerPosition = translateX.value
 
-    let selectedColor = interpolateColor(translateX.value, inputRange, colors)
+      translateY.value = withSpring(0)
+      scale.value = withSpring(1)
 
-    if (Number.isInteger(Number(selectedColor))) {
-      const red = (Number(selectedColor) >> 16) & 255
-      const green = (Number(selectedColor) >> 8) & 255
-      const blue = Number(selectedColor) & 255
-      const alpha = ((Number(selectedColor) >> 24) & 255) / 255
+      let selectedColor = interpolateColor(translateX.value, inputRange, colors)
 
-      selectedColor = `rgba(${red},${green},${blue},${alpha})`
+      if (Number.isInteger(Number(selectedColor))) {
+        const red = (Number(selectedColor) >> 16) & 255
+        const green = (Number(selectedColor) >> 8) & 255
+        const blue = Number(selectedColor) & 255
+        const alpha = ((Number(selectedColor) >> 24) & 255) / 255
+
+        selectedColor = `rgba(${red},${green},${blue},${alpha})`
+      }
+
+      onColorChanged?.(pickerPosition, selectedColor)
+    } else {
+      translateY.value = withSpring(0)
+      scale.value = withSpring(1)
     }
-
-    onColorChanged?.(pickerPosition, selectedColor)
   }, [])
 
   const panGestureEvent = useAnimatedGestureHandler<
@@ -126,7 +135,7 @@ const RNColorPicker = ({
     onActive: (event, context) => {
       translateX.value = event.translationX + context.x
     },
-    onEnd,
+    onFinish,
   })
 
   const tapGestureEvent =
@@ -135,20 +144,27 @@ const RNColorPicker = ({
         scale.value = withSpring(1.1)
         translateX.value = withTiming(event.absoluteX - SELECTOR_WIDTH)
       },
-      onEnd,
+      onEnd: onFinish,
     })
 
   const animatedPickerStyle = useAnimatedStyle(() => {
-    const backgroundColor = interpolateColor(
-      translateX.value,
-      inputRange,
-      colors,
-    )
+    let backgroundColor = interpolateColor(translateX.value, inputRange, colors)
 
     if (
       typeof backgroundColor === 'string' &&
       backgroundColor.includes('rgba')
     ) {
+      onColorChanged?.(translateX.value, backgroundColor)
+    }
+
+    if (realTime && Number.isInteger(Number(backgroundColor))) {
+      const red = (Number(backgroundColor) >> 16) & 255
+      const green = (Number(backgroundColor) >> 8) & 255
+      const blue = Number(backgroundColor) & 255
+      const alpha = ((Number(backgroundColor) >> 24) & 255) / 255
+
+      backgroundColor = `rgba(${red},${green},${blue},${alpha})`
+
       onColorChanged?.(translateX.value, backgroundColor)
     }
 
