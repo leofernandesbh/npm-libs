@@ -99,8 +99,6 @@ const RNColorPicker = ({
   const onFinish = useCallback(() => {
     'worklet'
 
-    console.log('ON END')
-
     if (!realTime) {
       const pickerPosition = translateX.value
 
