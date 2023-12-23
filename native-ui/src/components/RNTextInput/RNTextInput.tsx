@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { Platform, Pressable, TextInput } from 'react-native'
 import { makeBaseTextInputStyle } from '../../styles/styles.factory'
 import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
-import ExpoVectorIcon from '../RNIcon'
+import RNIcon from '../RNIcon'
 import { Colors } from '../../theme'
 import { dimensionCalculate } from '../../styles/styles.util'
 import RNBox from '../RNBox'
@@ -71,6 +71,29 @@ import Consts from '../../styles/Consts'
                 : 'default'
             }
           />
+          {!props.readOnly && props.leftIcon && (
+            <Pressable
+              style={({ pressed }) => [
+                {
+                  position: 'absolute',
+                  paddingLeft: 12,
+                  paddingTop: dimensionCalculate(props.mt),
+                  paddingBottom: dimensionCalculate(props.mb),
+                  opacity: pressed ? Consts.DEFAULT_OPACITY_CLICK : 1,
+                },
+              ]}
+              onPress={
+                props.leftIcon.onClick ? props.leftIcon.onClick : undefined
+              }
+            >
+              <RNIcon
+                as={props.leftIcon.icon.as}
+                name={props.leftIcon.icon.name}
+                size={props.leftIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
+                color={props.leftIcon.icon.color ?? Colors.gray[500]}
+              />
+            </Pressable>
+          )}
           {!props.readOnly && props.rightIcon && (
             <Pressable
               style={({ pressed }) => [
@@ -79,16 +102,14 @@ import Consts from '../../styles/Consts'
                   paddingRight: 12,
                   paddingTop: dimensionCalculate(props.mt),
                   paddingBottom: dimensionCalculate(props.mb),
-                  opacity: pressed
-                    ? Consts.DEFAULT_OPACITY_CLICK
-                    : 1,
+                  opacity: pressed ? Consts.DEFAULT_OPACITY_CLICK : 1,
                 },
               ]}
               onPress={
                 props.rightIcon.onClick ? props.rightIcon.onClick : undefined
               }
             >
-              <ExpoVectorIcon
+              <RNIcon
                 as={props.rightIcon.icon.as}
                 name={props.rightIcon.icon.name}
                 size={props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}

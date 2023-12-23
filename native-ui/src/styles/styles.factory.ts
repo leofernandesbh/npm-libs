@@ -6,8 +6,7 @@ import {
   CustomButtonProps,
   CustomTextInputProps,
   CustomScrollViewContainerProps,
-  CustomTextProps,
-  CustomPressableProps
+  CustomTextProps
 } from './Types/ui-components.types'
 import {
   dimensionCalculate,
@@ -179,6 +178,18 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
 }
 
 export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
+  const paddingLeftCalculate = () => {
+    if (props.leftIcon) {
+      const paddingRight = 
+        (props.leftIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE) + 
+        (props.px ? Number(props.px) : 3) + 1
+
+      return dimensionCalculate(paddingRight)
+    } else {
+      return dimensionCalculate(props.px ?? 3)
+    }
+  }
+
   const paddingRightCalculate = () => {
     if (props.rightIcon) {
       const paddingRight = 
@@ -202,7 +213,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
-    paddingLeft: dimensionCalculate(props.px ?? 3),
+    paddingLeft: paddingLeftCalculate(),
     paddingRight: paddingRightCalculate(),
     paddingTop: dimensionCalculate(props.pt ?? 3),
     paddingBottom: dimensionCalculate(props.pb ?? 3),

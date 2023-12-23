@@ -212,6 +212,11 @@ export interface CustomTextInputProps extends TextInputProps {
   opacity?: AnimatableNumericValue
   rounded?: BorderSizeAcronymes
   defaultKeyboard?: boolean
+  leftIcon?: {
+    icon: CustomIconProps
+    showOpacity?: boolean
+    onClick?(): void
+  }
   rightIcon?: {
     icon: CustomIconProps
     showOpacity?: boolean
