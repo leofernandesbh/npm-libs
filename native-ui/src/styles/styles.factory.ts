@@ -180,11 +180,11 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
 export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
   const paddingLeftCalculate = () => {
     if (props.leftIcon) {
-      const paddingRight = 
+      const paddingLeft = 
         (props.leftIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE) + 
-        (props.px ? Number(props.px) : 3) + 1
+        (props.px ? Number(props.px) : 3) + 1.5
 
-      return dimensionCalculate(paddingRight)
+      return dimensionCalculate(paddingLeft)
     } else {
       return dimensionCalculate(props.px ?? 3)
     }
