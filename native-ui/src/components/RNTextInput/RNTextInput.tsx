@@ -14,9 +14,33 @@ import Consts from '../../styles/Consts'
 
     return (
       <RNBox w={props.w ? undefined : '100%'}>
-        <RNHStack
-          justify={!props.readOnly && props.rightIcon ? 'flex-end' : undefined}
-        >
+        <RNHStack>
+          {!props.readOnly && props.leftIcon && (
+            <Pressable
+              style={({ pressed }) => [
+                {
+                  position: 'absolute',
+                  zIndex: 1,
+                  left: 12,
+                  top: dimensionCalculate(props.mt),
+                  opacity:
+                    props.leftIcon?.onClick && pressed
+                      ? Consts.DEFAULT_OPACITY_CLICK
+                      : 1,
+                },
+              ]}
+              onPress={
+                props.leftIcon.onClick ? props.leftIcon.onClick : undefined
+              }
+            >
+              <RNIcon
+                as={props.leftIcon.icon.as}
+                name={props.leftIcon.icon.name}
+                size={props.leftIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
+                color={props.leftIcon.icon.color ?? Colors.gray[500]}
+              />
+            </Pressable>
+          )}
           <TextInput
             ref={ref || undefined}
             style={baseStyle}
@@ -71,38 +95,16 @@ import Consts from '../../styles/Consts'
                 : 'default'
             }
           />
-          {!props.readOnly && props.leftIcon && (
-            <Pressable
-              style={({ pressed }) => [
-                {
-                  position: 'absolute',
-                  paddingLeft: 12,
-                  paddingTop: dimensionCalculate(props.mt),
-                  paddingBottom: dimensionCalculate(props.mb),
-                  opacity: pressed ? Consts.DEFAULT_OPACITY_CLICK : 1,
-                },
-              ]}
-              onPress={
-                props.leftIcon.onClick ? props.leftIcon.onClick : undefined
-              }
-            >
-              <RNIcon
-                as={props.leftIcon.icon.as}
-                name={props.leftIcon.icon.name}
-                size={props.leftIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
-                color={props.leftIcon.icon.color ?? Colors.gray[500]}
-              />
-            </Pressable>
-          )}
           {!props.readOnly && props.rightIcon && (
             <Pressable
               style={({ pressed }) => [
                 {
                   position: 'absolute',
-                  paddingRight: 12,
-                  paddingTop: dimensionCalculate(props.mt),
-                  paddingBottom: dimensionCalculate(props.mb),
-                  opacity: pressed ? Consts.DEFAULT_OPACITY_CLICK : 1,
+                  right: 12,
+                  top: dimensionCalculate(props.mt),
+                  opacity: props.rightIcon?.onClick && pressed
+                    ? Consts.DEFAULT_OPACITY_CLICK
+                    : 1,
                 },
               ]}
               onPress={
