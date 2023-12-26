@@ -12,8 +12,22 @@ import Consts from '../../styles/Consts'
   const RNTextInput = (props: CustomTextInputProps, ref: any) => {
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
+    const iconTopCalculate = (inputHeight?: number, iconSize?: number) => {
+      const inputH = Number(dimensionCalculate(inputHeight ?? 12))
+
+      return inputH / 2 - (iconSize ?? Consts.DEFAULT_ICON_SIZE) - 2
+    }
+
+    const iconTop = iconTopCalculate(props.h ? Number(props.h) : undefined)
+
     return (
-      <RNBox w={props.w ? undefined : '100%'}>
+      <RNBox
+        w={props.w ? undefined : '100%'}
+        ml={props.ml || props.m}
+        mr={props.mr || props.m}
+        mt={props.mt || props.m}
+        mb={props.mb || props.m}
+      >
         <RNHStack>
           {!props.readOnly && props.leftIcon && (
             <Pressable
@@ -22,7 +36,7 @@ import Consts from '../../styles/Consts'
                   position: 'absolute',
                   zIndex: 1,
                   left: 12,
-                  top: dimensionCalculate(props.mt),
+                  top: iconTop,
                   opacity:
                     props.leftIcon?.onClick && pressed
                       ? Consts.DEFAULT_OPACITY_CLICK
@@ -101,10 +115,11 @@ import Consts from '../../styles/Consts'
                 {
                   position: 'absolute',
                   right: 12,
-                  top: dimensionCalculate(props.mt),
-                  opacity: props.rightIcon?.onClick && pressed
-                    ? Consts.DEFAULT_OPACITY_CLICK
-                    : 1,
+                  top: iconTop,
+                  opacity:
+                    props.rightIcon?.onClick && pressed
+                      ? Consts.DEFAULT_OPACITY_CLICK
+                      : 1,
                 },
               ]}
               onPress={

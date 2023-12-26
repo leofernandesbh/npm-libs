@@ -205,37 +205,36 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   return {
     fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
-    color: props.fColor ? props.fColor : ((props.readOnly && Platform.OS === 'android') ? Colors.gray[700] : undefined),
+    color: props.fColor
+      ? props.fColor
+      : props.readOnly && Platform.OS === 'android'
+        ? Colors.gray[700]
+        : undefined,
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 12),
-    margin: dimensionCalculate(props.m),
-    marginTop: dimensionCalculate(props.mt),
-    marginBottom: dimensionCalculate(props.mb),
-    marginLeft: dimensionCalculate(props.ml),
-    marginRight: dimensionCalculate(props.mr),
     paddingLeft: paddingLeftCalculate(),
     paddingRight: paddingRightCalculate(),
     paddingTop: dimensionCalculate(props.pt ?? 3),
     paddingBottom: dimensionCalculate(props.pb ?? 3),
-    backgroundColor: props.bg 
+    backgroundColor: props.bg
       ? props.bg
-      : props.readOnly 
-      ? Colors.neutral[200]
-      : undefined,
+      : props.readOnly
+        ? Colors.neutral[200]
+        : undefined,
     borderColor: props.noBorder
       ? undefined
       : props.bColor
-      ? props.bColor
-      : Colors.gray[500],      
+        ? props.bColor
+        : Colors.gray[500],
     borderWidth: props.noBorder ? 0 : 1,
     borderRadius: convertBorderRadius(props.rounded),
     opacity: props.disableOpacity
-      ? 1 
-      : props.opacity 
-      ? props.opacity
-      : props.readOnly
-      ? Consts.DISABLED_OPACITY
-      : 1,
+      ? 1
+      : props.opacity
+        ? props.opacity
+        : props.readOnly
+          ? Consts.DISABLED_OPACITY
+          : 1,
   }
 }
 
