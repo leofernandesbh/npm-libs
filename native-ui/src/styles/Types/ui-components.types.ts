@@ -212,6 +212,7 @@ export interface CustomTextInputProps extends TextInputProps {
   opacity?: AnimatableNumericValue
   rounded?: BorderSizeAcronymes
   defaultKeyboard?: boolean
+  onClick?(): void
   leftIcon?: {
     icon: CustomIconProps
     showOpacity?: boolean
@@ -226,7 +227,7 @@ export interface CustomTextInputProps extends TextInputProps {
 
 export interface CustomMaskedInputProps extends CustomTextInputProps {
   maskType?: INPUT_MASK_TYPES
-  onChangeValue(value: string): void
+  onChangeValue?(value: string): void
 }
 
 export interface CustomImageProps extends ImageProps {

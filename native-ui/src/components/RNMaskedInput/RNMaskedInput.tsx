@@ -20,6 +20,9 @@ const RNMaskedInput = (props: CustomMaskedInputProps, ref: any) => {
   const baseStyle = props.style ?? makeBaseMaskedInputStyle(props)
 
   function handleChangeText(value: string) {
+    if (!props.onChangeValue) {
+      return
+    }
     if (props.maskType) {
       switch (props.maskType) {
         case 'cep':
@@ -72,7 +75,8 @@ const RNMaskedInput = (props: CustomMaskedInputProps, ref: any) => {
         editable={!props.readOnly}
         autoCapitalize='none'
         keyboardType='number-pad'
-        onChangeText={(value) => handleChangeText(value)}
+        onChangeText={handleChangeText}
+        onTouchEnd={props.onClick}
       />
     </RNBox>
   )

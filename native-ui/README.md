@@ -26,6 +26,7 @@
 - react-native-root-toast
 - react-native-reanimated
 - react-native-gesture-handler
+- @react-native-community/datetimepicker
 - lottie-react-native
 
 ## 3. Dependencies install
@@ -37,7 +38,7 @@ npm i @lfsoftwares/native-ui react-native-calendars date-fns react-native-root-t
 npx expo install expo-font @expo-google-fonts/roboto @expo/react-native-action-sheet expo-haptics react-native-safe-area-context
 ```
 ```bash
-npx expo install react-native-reanimated react-native-gesture-handler lottie-react-native
+npx expo install react-native-reanimated react-native-gesture-handler @react-native-community/datetimepicker lottie-react-native 
 ```
 - Incluir a linha ``react-native-reanimated/plugin`` nos plugins do arquivo ``babel.config.js``
 
@@ -79,6 +80,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **RNText**
 - **RNTextArea**
 - **RNTextInput**
+- **RNTimePicker**
 - **RNToastModal**
 - **RNTouchable**
 - **RNVStack**

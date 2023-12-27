@@ -108,6 +108,7 @@ import Consts from '../../styles/Consts'
                 ? 'visible-password'
                 : 'default'
             }
+            onTouchEnd={props.onClick}
           />
           {!props.readOnly && props.rightIcon && (
             <Pressable
