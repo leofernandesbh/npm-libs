@@ -110,12 +110,15 @@ const RNDaySelect = ({
                     themeStyle?.calendarBackground ?? Colors.slate[50],
                   monthTextColor: themeStyle?.monthTextColor ?? Colors.white,
                   dayTextColor: themeStyle?.dayTextColor ?? Colors.gray[800],
-                  textDayFontFamily:
-                    themeStyle?.textDayFontFamily ?? getFontFamily(),
-                  textMonthFontFamily:
-                    themeStyle?.textMonthFontFamily ?? getFontFamily(),
-                  textDayHeaderFontFamily:
-                    themeStyle?.textDayHeaderFontFamily ?? getFontFamily(),
+                  textDayFontFamily: getFontFamily(
+                    themeStyle?.textDayFontFamily,
+                  ),
+                  textMonthFontFamily: getFontFamily(
+                    themeStyle?.textMonthFontFamily,
+                  ),
+                  textDayHeaderFontFamily: getFontFamily(
+                    themeStyle?.textDayHeaderFontFamily,
+                  ),
                 }}
                 initialDate={'2022-08-01'} // mês em que o dia 1 cai na segunda
                 firstDay={1}

@@ -4,6 +4,7 @@ import RNText from "../RNText"
 import Consts from "../../styles/Consts"
 
 interface RNHeadTextProps extends TextProps {
+  fFamily?: string
   fColor?: ColorValue
   textSize?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   noBold?: boolean
@@ -15,6 +16,7 @@ interface RNHeadTextProps extends TextProps {
 }
 
 const RNHeadText = ({
+  fFamily,
   fColor,
   textSize,
   noBold,
@@ -32,6 +34,7 @@ const RNHeadText = ({
       mb={mb}
       ml={ml}
       mr={mr}
+      fFamily={fFamily}
       fColor={fColor || Colors.gray[700]}
       fSize={textSize || 'md'}
       fWeight={noBold ? 'normal' : 'bold'}

@@ -8,6 +8,7 @@ import { Colors } from "../../theme"
 import Consts from "../../styles/Consts"
 
 interface RNDropDownProps extends TouchableOpacityProps {
+  fFamily?: string
   h?: number
   value?: string
   placeholder: string
@@ -16,6 +17,7 @@ interface RNDropDownProps extends TouchableOpacityProps {
 }
 
 const RNDropDown = ({
+  fFamily,
   h,
   value,
   placeholder,
@@ -41,6 +43,7 @@ const RNDropDown = ({
       >
         <RNBox>
           <RNText
+            fFamily={fFamily}
             fSize={isTablet ? 'lg' : 'md'}
             fColor={value ? undefined : Colors.gray[500]}
           >

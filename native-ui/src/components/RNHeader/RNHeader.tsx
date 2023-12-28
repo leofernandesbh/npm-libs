@@ -11,16 +11,19 @@ import { Colors } from "../../theme"
 import RNActionSheet from "../RNActionSheet"
 import React from "react"
 import { useActionSheet } from "@expo/react-native-action-sheet"
+import Consts from "../../styles/Consts"
 
 type RNHeaderProps = {
   centerTitle?: {
     title: string
+    fFamily?: string
     fSize?: FontSizeAcronymes | number
     fColor?: ColorValue
     fWeight?: FontWeightAcronymes
   }
   centerSubTitle?: {
     title: string
+    fFamily?: string
     fSize?: FontSizeAcronymes | number
     fColor?: ColorValue
     fWeight?: FontWeightAcronymes
@@ -87,12 +90,20 @@ const RNHeader = (props: RNHeaderProps) => {
               size='sm'
             />
           ) : (
-            <RNPressable onPress={props.leftOption.onPress}>
+            <RNPressable
+              noPressEffect={props.leftOption.disabled}
+              onPress={
+                props.leftOption.disabled ? undefined : props.leftOption.onPress
+              }
+            >
               <RNIcon
                 as={props.leftOption.icon.as}
                 name={props.leftOption.icon.name}
                 size={props.leftOption.icon.size || 6}
                 color={props.leftOption.icon.color || Colors.white}
+                opacity={
+                  props.leftOption.disabled ? Consts.DISABLED_OPACITY : 1
+                }
               />
             </RNPressable>
           ))}
@@ -103,6 +114,7 @@ const RNHeader = (props: RNHeaderProps) => {
       >
         {props.centerTitle && (
           <RNText
+            fFamily={props.centerTitle.fFamily}
             fSize={props.centerTitle.fSize || 'lg'}
             fColor={props.centerTitle.fColor || Colors.white}
             fWeight={
@@ -115,6 +127,7 @@ const RNHeader = (props: RNHeaderProps) => {
         )}
         {props.centerSubTitle && (
           <RNText
+            fFamily={props.centerSubTitle.fFamily}
             fSize={props.centerSubTitle.fSize || 'md'}
             fColor={props.centerSubTitle.fColor || Colors.white}
             fWeight={props.centerSubTitle.fWeight || 'normal'}
@@ -133,9 +146,11 @@ const RNHeader = (props: RNHeaderProps) => {
             title={props.rightActionSheetOptions.title}
             message={props.rightActionSheetOptions.message}
             options={props.rightActionSheetOptions.options}
-            cancelButtonTintColor={props.rightActionSheetOptions.cancelButtonTintColor ? String(
-              props.rightActionSheetOptions.cancelButtonTintColor,
-            ) : undefined}
+            cancelButtonTintColor={
+              props.rightActionSheetOptions.cancelButtonTintColor
+                ? String(props.rightActionSheetOptions.cancelButtonTintColor)
+                : undefined
+            }
             destructiveButtonIndex={
               props.rightActionSheetOptions.destructiveButtonIndex
             }
@@ -166,12 +181,22 @@ const RNHeader = (props: RNHeaderProps) => {
               size='sm'
             />
           ) : (
-            <RNPressable onPress={props.rightOption.onPress}>
+            <RNPressable
+              noPressEffect={props.rightOption.disabled}
+              onPress={
+                props.rightOption.disabled
+                  ? undefined
+                  : props.rightOption.onPress
+              }
+            >
               <RNIcon
                 as={props.rightOption.icon.as}
                 name={props.rightOption.icon.name}
                 size={props.rightOption.icon.size || 6}
                 color={props.rightOption.icon.color || Colors.white}
+                opacity={
+                  props.rightOption.disabled ? Consts.DISABLED_OPACITY : 1
+                }
               />
             </RNPressable>
           ))}

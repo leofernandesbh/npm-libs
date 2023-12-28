@@ -14,6 +14,7 @@ import FontSizes from "../../theme/FontSizes"
 
 interface RNToastModalProps {
   text: string
+  fFamily?: string
   variant: 'information' | 'error' | 'alert' | 'success'
   animate: boolean
   timeout?: number
@@ -23,6 +24,7 @@ interface RNToastModalProps {
 
 const RNToastModal = ({
   text,
+  fFamily,
   variant,
   animate,
   timeout,
@@ -102,6 +104,7 @@ const RNToastModal = ({
         >
           <RNBox flex={1}>
             <RNText
+              fFamily={fFamily}
               fColor={Colors.white}
               fSize={isTablet ? FontSizes.toastTablet : FontSizes.toastPhone}
               maxFontSizeMultiplier={1}

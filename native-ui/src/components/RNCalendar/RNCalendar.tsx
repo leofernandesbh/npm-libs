@@ -15,6 +15,7 @@ interface RNCalendarProps extends ModalProps {
   initialDate?: string
   bColor?: ColorValue
   themeStyle?: {
+    fFamily?: string
     arrowColor: string
     calendarBackground: string
     selectedDayBackgroundColor: string
@@ -136,9 +137,9 @@ const RNCalendar = ({
               selectedDayTextColor: themeStyle?.selectedDayTextColor ?? Colors.gray[800],
               todayTextColor: themeStyle?.todayTextColor ?? Colors.gray[800],
               dayTextColor: themeStyle?.dayTextColor ?? Colors.gray[800],
-              textDayFontFamily: getFontFamily(),
-              textMonthFontFamily: getFontFamily(),
-              textDayHeaderFontFamily: getFontFamily(),
+              textDayFontFamily: getFontFamily(themeStyle?.fFamily),
+              textMonthFontFamily: getFontFamily(themeStyle?.fFamily),
+              textDayHeaderFontFamily: getFontFamily(themeStyle?.fFamily),
             }}
             firstDay={1}
             initialDate={initialDateFormated}

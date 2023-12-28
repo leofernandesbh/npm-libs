@@ -8,6 +8,7 @@ interface RNFakeInputProps extends CustomViewProps {
   inputText: string
   isBold?: boolean
   textStyle?: {
+    fFamily?: string
     fColor?: ColorValue
     fSize?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
@@ -47,6 +48,7 @@ const RNFakeInput = ({
       {...rest}
     >
       <RNText
+        fFamily={textStyle?.fFamily}
         fColor={textStyle?.fColor}
         fSize={textStyle?.fSize}
         textAlign={textStyle?.textAlign}

@@ -6,7 +6,7 @@ import RNFontSizes from '../../theme/FontSizes/FontSizes'
 
 type RNToastVariant = 'information' | 'error' | 'alert' | 'success'
 
-const showToast = (text: string, variant: RNToastVariant, timeout?: number) => {
+const showToast = (text: string, variant: RNToastVariant, timeout?: number, fFamily?: string) => {
   const toastEmoji =
     variant === 'success'
       ? '✓  '
@@ -40,7 +40,7 @@ const showToast = (text: string, variant: RNToastVariant, timeout?: number) => {
     },
     textStyle: {
       color: Colors.white,
-      fontFamily: getFontFamily(),
+      fontFamily: getFontFamily(fFamily),
       fontSize: RNFontSizes.toastPhone,
     },
   })
