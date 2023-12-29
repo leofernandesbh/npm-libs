@@ -10,12 +10,21 @@ import RNHStack from '../RNHStack'
 import Consts from '../../styles/Consts'
 
 const RNTextInput = (props: CustomTextInputProps, ref: any) => {
-  let baseStyle = props.style ?? makeBaseTextInputStyle(props)
+  const baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
   const iconTopCalculate = (inputHeight?: number, iconSize?: number) => {
+    const iconName = props.rightIcon?.icon.name
+    const isPasswordIcon = !!(
+      iconName && String(iconName).includes('visibility')
+    )
+
     const inputH = Number(dimensionCalculate(inputHeight ?? 12))
 
-    return inputH / 2 - (iconSize ?? Consts.DEFAULT_ICON_SIZE) - 2
+    return (
+      inputH / 2 -
+      (iconSize ?? Consts.DEFAULT_ICON_SIZE) -
+      (isPasswordIcon ? 6 : 2)
+    )
   }
 
   const iconTop = iconTopCalculate(props.h ? Number(props.h) : undefined)
@@ -140,4 +149,4 @@ const RNTextInput = (props: CustomTextInputProps, ref: any) => {
   )
 }
 
-  export default forwardRef<TextInput, CustomTextInputProps>(RNTextInput)
+export default forwardRef<TextInput, CustomTextInputProps>(RNTextInput)

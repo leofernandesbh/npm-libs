@@ -2,6 +2,7 @@ import {
   AnimatableNumericValue,
   ColorValue,
   DimensionValue,
+  GestureResponderEvent,
   ImageProps,
   ImageSourcePropType,
   PressableProps,
@@ -212,7 +213,7 @@ export interface CustomTextInputProps extends TextInputProps {
   opacity?: AnimatableNumericValue
   rounded?: BorderSizeAcronymes
   defaultKeyboard?: boolean
-  onClick?(): void
+  onClick?(event: GestureResponderEvent): void
   leftIcon?: {
     icon: CustomIconProps
     showOpacity?: boolean
