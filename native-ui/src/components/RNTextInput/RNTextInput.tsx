@@ -14,8 +14,8 @@ const RNTextInput = (props: CustomTextInputProps, ref: any) => {
 
   const iconTopCalculate = (inputHeight?: number, iconSize?: number) => {
     const iconName = props.rightIcon?.icon.name
-    const isPasswordIcon = !!(
-      iconName && String(iconName).includes('visibility')
+    const isClearIcon = !!(
+      iconName && String(iconName).includes('circle-with-cross')
     )
 
     const inputH = Number(dimensionCalculate(inputHeight ?? 12))
@@ -23,7 +23,7 @@ const RNTextInput = (props: CustomTextInputProps, ref: any) => {
     return (
       inputH / 2 -
       (iconSize ?? Consts.DEFAULT_ICON_SIZE) -
-      (isPasswordIcon ? 6 : 2)
+      (isClearIcon ? 2 : 6)
     )
   }
 
