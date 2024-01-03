@@ -134,7 +134,7 @@ class NumberUtils {
         currencyText
           .replace('R$', '')
           .replace('%', '')
-          .replace('.', '')
+          .replace(/\./g, '')
           .replace(',', '.')
           .trim(),
       )
