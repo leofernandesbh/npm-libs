@@ -47,6 +47,7 @@ npx expo install react-native-reanimated react-native-gesture-handler @react-nat
 ### Components
 
 - **RNActionSheet**
+- **RNActionSheetModal**
 - **RNAvatar**
 - **RNBackground**
 - **RNBox**

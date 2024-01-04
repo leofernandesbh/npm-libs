@@ -411,3 +411,21 @@ export interface CustomActionSheetProps {
   ) => void
   onActionSelection: (index?: number) => void
 }
+
+export interface CustomActionSheetModalProps {
+  mx?: DimensionValue
+  rounded?: BorderSizeAcronymes
+  bg?: ColorValue
+  dividerColor?: ColorValue
+  title?: string
+  message?: string
+  titleStyle?: TextStyle
+  messageStyle?: TextStyle
+  optionStyle?: TextStyle
+  destructiveStyle?: TextStyle
+  speed?: number
+  show: boolean
+  options: string[]
+  onSelect: (index: number) => void
+  onCancel: () => void
+}
