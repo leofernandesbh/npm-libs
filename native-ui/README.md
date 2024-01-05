@@ -28,11 +28,12 @@
 - react-native-gesture-handler
 - @react-native-community/datetimepicker
 - lottie-react-native
+- @lfsoftwares/native-util
 
 ## 3. Dependencies install
 
 ```bash
-npm i @lfsoftwares/native-ui react-native-calendars date-fns react-native-root-toast
+npm i @lfsoftwares/native-ui @lfsoftwares/native-util react-native-calendars date-fns react-native-root-toast
 ```
 ```bash
 npx expo install expo-font @expo-google-fonts/roboto @expo/react-native-action-sheet expo-haptics react-native-safe-area-context
@@ -58,6 +59,7 @@ npx expo install react-native-reanimated react-native-gesture-handler @react-nat
 - **RNCenterSafe**
 - **RNCircularButton**
 - **RNColorPicker**
+- **RNDatePicker**
 - **RNDaySelect**
 - **RNDecimalKeyboard**
 - **RNDivider**
