@@ -1,12 +1,14 @@
 import { Text } from 'react-native'
 import { CustomTextProps } from '../../styles/Types/ui-components.types'
 import { makeBaseTextStyle } from '../../styles/styles.factory'
+import { forwardRef } from 'react'
 
-const RNText = (props: CustomTextProps) => {
+const RNText = (props: CustomTextProps, ref: any) => {
   const baseStyle = props.style ?? makeBaseTextStyle(props)
 
   return (
       <Text
+        ref={ref || undefined}
         maxFontSizeMultiplier={props.noAccessibility ? 1 : undefined}
         style={baseStyle}
         {...props}
@@ -17,4 +19,4 @@ const RNText = (props: CustomTextProps) => {
   )
 }
 
-export default RNText
+export default forwardRef<Text, CustomTextProps>(RNText)

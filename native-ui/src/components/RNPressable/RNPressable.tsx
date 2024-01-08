@@ -1,12 +1,14 @@
-import { Pressable } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { CustomPressableProps } from '../../styles'
 import { dimensionCalculate } from '../../styles/styles.util'
 
 import Consts from '../../styles/Consts'
+import { forwardRef } from 'react'
 
-const RNPressable = (props: CustomPressableProps) => {
+const RNPressable = (props: CustomPressableProps, ref: any) => {
   return (
     <Pressable
+      ref={ref || undefined}
       style={({ pressed }) => [
         {
           opacity: props.noPressEffect
@@ -41,4 +43,4 @@ const RNPressable = (props: CustomPressableProps) => {
   )
 }
 
-export default RNPressable
+export default forwardRef<View, CustomPressableProps>(RNPressable)

@@ -1,11 +1,11 @@
-import { TouchableOpacity, TouchableOpacityProps } from "react-native"
 import { Feather } from "@expo/vector-icons"
+import { TouchableOpacityProps, TouchableOpacity } from "react-native"
+import Consts from "../../styles/Consts"
 import RNBox from "../RNBox"
 import RNHStack from "../RNHStack"
 import RNIcon from "../RNIcon"
 import RNText from "../RNText"
 import { Colors } from "../../theme"
-import Consts from "../../styles/Consts"
 
 interface RNDropDownProps extends TouchableOpacityProps {
   fFamily?: string
@@ -13,7 +13,7 @@ interface RNDropDownProps extends TouchableOpacityProps {
   value?: string
   placeholder: string
   disabled?: boolean
-  isTablet?: boolean  
+  isTablet?: boolean
 }
 
 const RNDropDown = ({
@@ -36,7 +36,8 @@ const RNDropDown = ({
         align='center'
         justify='space-between'
         px={2}
-        bg={disabled ? 'light.200' : 'white'}
+        bg={Colors.white}
+        opacity={disabled ? Consts.DISABLED_OPACITY : 1}
         bColor={Colors.gray[700]}
         bWidth={1}
         rounded='sm'
@@ -54,7 +55,8 @@ const RNDropDown = ({
           <RNIcon
             as={Feather}
             name='chevron-down'
-            color={disabled ? Colors.slate[400] : Colors.gray[800]}
+            color={Colors.gray[700]}
+            opacity={disabled ? Consts.DISABLED_OPACITY : 1}
             size={6}
           />
         </RNBox>
