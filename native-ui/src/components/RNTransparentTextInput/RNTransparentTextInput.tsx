@@ -1,7 +1,7 @@
 import { forwardRef } from "react"
 import { TextInput, Platform } from "react-native"
 import { CustomTransparentTextInputProps } from "../../styles"
-import { makeBaseTextInputStyle } from "../../styles/styles.factory"
+import { makeBaseTransparentTextInputStyle } from "../../styles/styles.factory"
 import RNBox from "../RNBox"
 import RNHStack from "../RNHStack"
 import { Colors } from "../../theme"
@@ -10,7 +10,7 @@ const RNTransparentTextInput = (
   props: CustomTransparentTextInputProps,
   ref: any,
 ) => {
-  const baseStyle = props.style ?? makeBaseTextInputStyle(props)
+  const baseStyle = props.style ?? makeBaseTransparentTextInputStyle(props)
 
   return (
     <RNBox
