@@ -83,6 +83,7 @@ npx expo install react-native-reanimated react-native-gesture-handler @react-nat
 - **RNText**
 - **RNTextArea**
 - **RNTextInput**
+- **RNTransparentTextInput**
 - **RNTimePicker**
 - **RNToastModal**
 - **RNTouchable**

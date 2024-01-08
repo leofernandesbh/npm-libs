@@ -226,6 +226,33 @@ export interface CustomTextInputProps extends TextInputProps {
   }
 }
 
+export interface CustomTransparentTextInputProps extends TextInputProps {
+  transparentColor: ColorValue
+  fFamily?: string
+  fWeight?: FontWeightAcronymes
+  fSize?: FontSizeAcronymes | number
+  fColor?: ColorValue
+  w?: DimensionValue | 'full'
+  h?: DimensionValue | 'full'
+  m?: DimensionValue
+  mt?: DimensionValue
+  mb?: DimensionValue
+  ml?: DimensionValue
+  mr?: DimensionValue
+  isUpperCase?: boolean
+  isLowerCase?: boolean
+  onlyNumbers?: boolean
+  isDecimal?: boolean
+  capitalizeWords?: boolean
+  isPassword?: boolean
+  isPhoneNumber?: boolean
+  readOnly?: boolean
+  disableOpacity?: boolean
+  opacity?: AnimatableNumericValue
+  defaultKeyboard?: boolean
+  onClick?(event: GestureResponderEvent): void
+}
+
 export interface CustomMaskedInputProps extends CustomTextInputProps {
   maskType?: INPUT_MASK_TYPES
   onChangeValue?(value: string): void

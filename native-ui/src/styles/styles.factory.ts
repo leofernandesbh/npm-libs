@@ -6,7 +6,8 @@ import {
   CustomButtonProps,
   CustomTextInputProps,
   CustomScrollViewContainerProps,
-  CustomTextProps
+  CustomTextProps,
+  CustomTransparentTextInputProps
 } from './Types/ui-components.types'
 import {
   dimensionCalculate,
@@ -237,6 +238,30 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
           : 1,
   }
 }
+
+export function makeBaseTransparentTextInputStyle(
+    props: CustomTransparentTextInputProps,
+  ): StyleProp<TextStyle> {
+    return {
+      fontFamily: getFontFamily(props.fFamily, props.fWeight),
+      fontSize: convertFontSize(props.fSize),
+      color: props.fColor
+        ? props.fColor
+        : props.readOnly && Platform.OS === 'android'
+          ? Colors.gray[700]
+          : undefined,
+      width: props.w ? dimensionCalculate(props.w) : '100%',
+      height: props.h ? dimensionCalculate(props.h ?? 12) : undefined,
+      backgroundColor: props.transparentColor,
+      opacity: props.disableOpacity
+        ? 1
+        : props.opacity
+          ? props.opacity
+          : props.readOnly
+            ? Consts.DISABLED_OPACITY
+            : 1,
+    }
+  }
 
 export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
   return {
