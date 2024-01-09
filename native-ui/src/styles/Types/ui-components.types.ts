@@ -98,6 +98,8 @@ export interface CustomViewProps extends ViewProps {
   bBottomColor?: ColorValue
   bBottomWidth?: number
   rounded?: BorderSizeAcronymes
+  bLeftRounded?: BorderSizeAcronymes
+  bRightRounded?: BorderSizeAcronymes
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'
   zIndex?: number
