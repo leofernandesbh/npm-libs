@@ -71,6 +71,7 @@ npx expo install react-native-reanimated react-native-gesture-handler @react-nat
 - **RNHStack**
 - **RNHStackSafe**
 - **RNIcon**
+- **RNKeyboardAvoidingView**
 - **RNLogo**
 - **RNMaskedInput**
 - **RNMessage**
