@@ -12,15 +12,16 @@ interface RNSwitchProps extends SwitchProps {
   fFamily?: string
   fColor?: ColorValue
   fWeight?: FontWeightAcronymes
+  noMargin?: boolean
   onInformationPress?(): void
 }
 
-const RNSwitch = ({ title, fSize, fFamily, fColor, fWeight, onInformationPress, ...rest }: RNSwitchProps) => {
+const RNSwitch = ({ title, fSize, fFamily, fColor, fWeight, noMargin, onInformationPress, ...rest }: RNSwitchProps) => {
   return (
     <>
       <RNHStack align='center'>
         <RNText
-          mr={onInformationPress ? 1 : 2}
+          mr={noMargin ? 0 : onInformationPress ? 1 : 2}
           fSize={fSize}
           fFamily={fFamily}
           fColor={fColor}
