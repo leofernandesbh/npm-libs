@@ -5,8 +5,9 @@ import { getFontFamily } from '../../styles/styles.util'
 import RNFontSizes from '../../theme/FontSizes/FontSizes'
 
 type RNToastVariant = 'information' | 'error' | 'alert' | 'success'
+type RNToastPosition = 'top' | 'bottom' | 'center'
 
-const showToast = (text: string, variant: RNToastVariant, timeout?: number, fFamily?: string) => {
+const showToast = (text: string, variant: RNToastVariant, timeout?: number, fFamily?: string, position?: RNToastPosition) => {
   const toastEmoji =
     variant === 'success'
       ? '✓  '
@@ -16,9 +17,11 @@ const showToast = (text: string, variant: RNToastVariant, timeout?: number, fFam
       ? '❕ '
       : '💡  '
 
+  const toastPosition: number = position === 'center' ? Toast.positions.CENTER : position === 'bottom' ? Toast.positions.BOTTOM : Toast.positions.TOP
+
   return Toast.show(toastEmoji.concat(text), {
     duration: timeout || 2500,
-    position: Toast.positions.TOP,
+    position: toastPosition,
     shadow: false,
     opacity: 1,
     animation: true,
