@@ -122,6 +122,27 @@ class RNDateUtils {
     const strDateTime = moment(jsDate).format('YYYY-MM-DD HH:mm:ss')
     return new Date(strDateTime)
   }
+
+  static convertBrazilianDateStringToJSFormat(strDate: string) {
+    const dateParts = strDate.split('/')
+    
+    if (dateParts.length !== 3) {
+      return 
+    }
+
+    return dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0]
+  }
+
+  static subtractFromJSDate(jsDate: Date, days: number) {
+    const strDate = moment(jsDate).subtract(days, 'days').format('YYYY-MM-DD')
+    return new Date(strDate)
+  }
+
+  static subtractFromBrazilianDate(brDate: string, days: number) {
+    const jsDate = this.convertBrazilianDateStringToJSFormat(brDate)    
+    const strDate = moment(jsDate).subtract(days, 'days').format('YYYY-MM-DD')
+    return new Date(strDate)
+  }
 }
 
 export default RNDateUtils

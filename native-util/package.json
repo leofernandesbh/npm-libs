@@ -1,6 +1,6 @@
 {
   "name": "@lfsoftwares/native-util",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Utility library for react native",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",
