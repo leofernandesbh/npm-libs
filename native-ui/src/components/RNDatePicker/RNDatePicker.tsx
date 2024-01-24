@@ -14,6 +14,7 @@ import { RNDateUtils } from '@lfsoftwares/native-util'
 
 interface RNDatePickerProps {
   visible?: boolean
+  minDate?: string
   currentDate?: string
   themeVariant?: 'light' | 'dark'
   textColor?: string
@@ -38,9 +39,9 @@ const RNDatePicker = (props: RNDatePickerProps) => {
     }
   })
 
-  function formatCurrentDate() {
-    if (props.currentDate) {
-      const dateParts = props.currentDate.split('/')
+  function formatBrazilianDate(brDate?: string, defaultCurrent?: boolean) {
+    if (brDate) {
+      const dateParts = brDate.split('/')
 
       if (dateParts.length === 3) {
         const d = dateParts[0].padStart(2, '0')
@@ -52,11 +53,16 @@ const RNDatePicker = (props: RNDatePickerProps) => {
       }
     }
 
-    const currentDateTime = moment().format('YYYY-MM-DD') + ' 12:00:00'
-    return new Date(currentDateTime)
+    if (defaultCurrent) {      
+      const currentDateTime = moment().format('YYYY-MM-DD') + ' 12:00:00'
+      return new Date(currentDateTime)
+    }
+
+    return
   }
 
-  const currentValue = formatCurrentDate()
+  const minDate = formatBrazilianDate(props.minDate)
+  const currentValue = formatBrazilianDate(props.currentDate, true)
 
   function animate() {
     containerHeight.value = withTiming(props.visible ? 200 : 0, {
@@ -85,7 +91,8 @@ const RNDatePicker = (props: RNDatePickerProps) => {
         mode='date'
         locale='pt-BR'
         themeVariant={props.themeVariant}
-        value={currentValue}
+        minimumDate={minDate}
+        value={currentValue || new Date()}
         textColor={props.textColor}
         onChange={onChange}
       />
