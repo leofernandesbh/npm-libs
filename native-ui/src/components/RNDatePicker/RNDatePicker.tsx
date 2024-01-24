@@ -83,7 +83,7 @@ const RNDatePicker = (props: RNDatePickerProps) => {
       <DateTimePicker
         display='spinner'
         mode='date'
-        timeZoneName={'America/Sao_Paulo'}
+        locale='pt-BR'
         themeVariant={props.themeVariant}
         value={currentValue}
         textColor={props.textColor}

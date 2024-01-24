@@ -84,7 +84,7 @@ const RNTimePicker = (props: RNTimePickerProps) => {
       <DateTimePicker
         display='spinner'
         mode='time'
-        timeZoneName={'America/Sao_Paulo'}
+        locale='pt-BR'
         is24Hour={true}
         minuteInterval={props.minuteInterval || 5}
         themeVariant={props.themeVariant}
