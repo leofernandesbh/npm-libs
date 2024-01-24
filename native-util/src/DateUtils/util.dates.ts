@@ -31,7 +31,7 @@ class RNDateUtils {
     mask += fullTime ? ' HH:mm:ss' : ' HH:mm'
 
     return moment().format(mask)
-  }
+  }  
 
   static formatDate(
     date?: Date | string,
@@ -77,7 +77,7 @@ class RNDateUtils {
     mask += fullTime ? ' HH:mm:ss' : ' HH:mm'
 
     return moment(dateTime).format(mask)
-  }
+  }  
 
   static formatGluedTime(
     time?: number | string,
@@ -101,6 +101,26 @@ class RNDateUtils {
     }
 
     return moment(timeStr, mask).format(mask)
+  }
+  
+  static currentJSDate() {
+    const strDate = moment().format('YYYY-MM-DD')
+    return new Date(strDate)
+  }
+
+  static currentJSDateTime() {
+    const strDateTime = moment().format('YYYY-MM-DD HH:mm:ss')
+    return new Date(strDateTime)
+  }
+
+  static formatJSDate(jsDate: Date) {
+    const strDate = moment(jsDate).format('YYYY-MM-DD')
+    return new Date(strDate)
+  }
+
+  static formatJSDateTime(jsDate: Date) {
+    const strDateTime = moment(jsDate).format('YYYY-MM-DD HH:mm:ss')
+    return new Date(strDateTime)
   }
 }
 
