@@ -121,7 +121,7 @@ class RNDateUtils {
   static formatJSDateTime(jsDate: Date) {
     const strDateTime = moment(jsDate).format('YYYY-MM-DD HH:mm:ss')
     return new Date(strDateTime)
-  }
+  }  
 
   static convertBrazilianDateStringToJSFormat(strDate: string) {
     const dateParts = strDate.split('/')
@@ -133,6 +133,14 @@ class RNDateUtils {
     return dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0]
   }
 
+  static convertBrazilianDateStringToJSDate(brDate: string) {
+    const jsDate = this.convertBrazilianDateStringToJSFormat(brDate)
+
+    if (!jsDate) return 
+
+    return new Date(jsDate)
+  }
+
   static subtractFromJSDate(jsDate: Date, days: number) {
     const strDate = moment(jsDate).subtract(days, 'days').format('YYYY-MM-DD')
     return new Date(strDate)
@@ -141,6 +149,12 @@ class RNDateUtils {
   static subtractFromBrazilianDate(brDate: string, days: number) {
     const jsDate = this.convertBrazilianDateStringToJSFormat(brDate)    
     const strDate = moment(jsDate).subtract(days, 'days').format('YYYY-MM-DD')
+    return new Date(strDate)
+  }
+
+  static calculateParcelConsolidationDate(transactionDate: string, parcelNumber: number) {
+    const jsDate = this.convertBrazilianDateStringToJSDate(transactionDate)
+    const strDate = moment(jsDate).add(parcelNumber - 1, 'months').format('YYYY-MM-DD')
     return new Date(strDate)
   }
 }
