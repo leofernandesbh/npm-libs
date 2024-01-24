@@ -1,5 +1,7 @@
 import moment from 'moment'
 
+const BRAZILIAN_TIMEZONE = 'T12:00:00.000Z'
+
 class RNDateUtils {
   private static removeDateTimeZone(
     canRemove: boolean,
@@ -104,7 +106,7 @@ class RNDateUtils {
   }
   
   static currentJSDate() {
-    const strDate = moment().format('YYYY-MM-DD')
+    const strDate = moment().format('YYYY-MM-DD') + BRAZILIAN_TIMEZONE
     return new Date(strDate)
   }
 
@@ -114,7 +116,7 @@ class RNDateUtils {
   }
 
   static formatJSDate(jsDate: Date) {
-    const strDate = moment(jsDate).format('YYYY-MM-DD')
+    const strDate = moment(jsDate).format('YYYY-MM-DD') + BRAZILIAN_TIMEZONE
     return new Date(strDate)
   }
 
@@ -130,7 +132,7 @@ class RNDateUtils {
       return 
     }
 
-    return dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0]
+    return dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0] + BRAZILIAN_TIMEZONE
   }
 
   static convertBrazilianDateStringToJSDate(brDate: string) {
