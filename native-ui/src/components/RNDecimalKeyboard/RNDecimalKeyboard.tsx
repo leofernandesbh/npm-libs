@@ -177,7 +177,7 @@ const RNDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
   const styles = StyleSheet.create({
     container: {
       width: '100%',
-      align: 'center',
+      alignItems: 'center',
       backgroundColor: RNColors.gray[300],
       paddingTop: 8,
       paddingBottom: props.footerButton
@@ -198,7 +198,7 @@ const RNDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
       width: '100%',
       height: props.isTablet ? 68 : 64,
       flexDirection: 'row',
-      align: 'center',
+      alignItems: 'center',
       marginBottom: insets.bottom + (Platform.OS === 'android' ? 5 : 0),
     },
     footerText: {

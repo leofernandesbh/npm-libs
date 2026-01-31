@@ -14,7 +14,8 @@ import {
   inputMaskPhone,
   inputMaskTime
 } from '../../util/util.masks'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+
+const DEFAULT_CURSOR_COLOR = '#000000'
 
 const RNMaskedInput = (props: CustomMaskedInputProps, ref: any) => {
   const baseStyle = props.style ?? makeBaseMaskedInputStyle(props)
@@ -70,7 +71,7 @@ const RNMaskedInput = (props: CustomMaskedInputProps, ref: any) => {
         autoCorrect={false}
         clearButtonMode={props.noClear ? 'never' : 'always'}
         autoComplete={props.autoComplete}
-        cursorColor={Colors.cursor}
+        cursorColor={props.cursorColor ?? DEFAULT_CURSOR_COLOR}
         selectionColor={undefined}
         editable={!props.readOnly}
         autoCapitalize='none'

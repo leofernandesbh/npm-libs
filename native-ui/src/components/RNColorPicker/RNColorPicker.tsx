@@ -34,7 +34,9 @@ const RN_DEFAULT_COLOR_PICKER_COLORS = [
   'salmon',
 ]
 
-interface ColorPickerProps extends Partial<LinearGradientProps> {
+interface ColorPickerProps
+  extends Omit<Partial<LinearGradientProps>, 'colors'> {
+  colors?: string[]
   screenWidthPercentage?: number
   height?: number
   borderRadius?: number
@@ -103,7 +105,11 @@ const RNColorPicker = ({
 
     if (!realTime) {
       const pickerPosition = translateX.value
-      let selectedColor = interpolateColor(translateX.value, inputRange, colors)
+      let selectedColor: string | number = interpolateColor(
+        translateX.value,
+        inputRange,
+        colors as readonly string[],
+      )
 
       if (Number.isInteger(Number(selectedColor))) {
         const red = (Number(selectedColor) >> 16) & 255
@@ -114,8 +120,13 @@ const RNColorPicker = ({
         selectedColor = `rgba(${red},${green},${blue},${alpha})`
       }
 
+      const colorStr: string =
+        typeof selectedColor === 'string'
+          ? selectedColor
+          : `rgba(${(Number(selectedColor) >> 16) & 255},${(Number(selectedColor) >> 8) & 255},${Number(selectedColor) & 255},${((Number(selectedColor) >> 24) & 255) / 255})`
+
       if (onColorChanged) {
-        runOnJS(handleColorChanged)(pickerPosition, selectedColor)
+        runOnJS(handleColorChanged)(pickerPosition, colorStr)
       }
     }
   }, [realTime, inputRange, colors, handleColorChanged])
@@ -145,7 +156,11 @@ const RNColorPicker = ({
   const composedGesture = Gesture.Race(tapGesture, panGesture)
 
   const animatedPickerStyle = useAnimatedStyle(() => {
-    let backgroundColor = interpolateColor(translateX.value, inputRange, colors)
+    let backgroundColor: string | number = interpolateColor(
+      translateX.value,
+      inputRange,
+      colors as readonly string[],
+    )
 
     if (
       typeof backgroundColor === 'string' &&
@@ -189,7 +204,7 @@ const RNColorPicker = ({
     <GestureDetector gesture={composedGesture}>
       <Animated.View style={{ justifyContent: 'center' }}>
         <LinearGradient
-          colors={colors}
+          colors={colors as LinearGradientProps['colors']}
           start={start}
           end={end}
           style={pickerStyle}
