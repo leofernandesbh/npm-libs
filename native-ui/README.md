@@ -10,8 +10,10 @@
 
 ## 1. Prerequisites
 
-- React Native 
-- Expo
+- Expo SDK 54+
+- React Native 0.81+
+- React 19.1+
+- New Architecture (required for Reanimated v4)
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
 
 ## 2. Dependencies (another libraries)
@@ -24,8 +26,9 @@
 - react-native-calendars
 - date-fns
 - react-native-root-toast
-- react-native-reanimated
-- react-native-gesture-handler
+- react-native-reanimated (v4+)
+- react-native-worklets (required by Reanimated v4)
+- react-native-gesture-handler (v2.28+)
 - @react-native-community/datetimepicker
 - lottie-react-native
 - @lfsoftwares/native-util
@@ -39,9 +42,9 @@ npm i @lfsoftwares/native-ui @lfsoftwares/native-util react-native-calendars dat
 npx expo install expo-font @expo-google-fonts/roboto @expo/react-native-action-sheet expo-haptics react-native-safe-area-context
 ```
 ```bash
-npx expo install react-native-reanimated react-native-gesture-handler @react-native-community/datetimepicker lottie-react-native 
+npx expo install react-native-reanimated react-native-worklets react-native-gesture-handler @react-native-community/datetimepicker lottie-react-native 
 ```
-- Incluir a linha ``react-native-reanimated/plugin`` nos plugins do arquivo ``babel.config.js``
+- Incluir a linha ``react-native-worklets/plugin`` nos plugins do arquivo ``babel.config.js``
 
 ## 4. What's included?
 

@@ -1,15 +1,10 @@
 import { useCallback } from 'react'
 import { Dimensions, StyleSheet } from 'react-native'
 import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient'
-import {
-  PanGestureHandler,
-  PanGestureHandlerGestureEvent,
-  TapGestureHandler,
-  TapGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler'
+import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 import Animated, {
   interpolateColor,
-  useAnimatedGestureHandler,
+  runOnJS,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
@@ -96,15 +91,18 @@ const RNColorPicker = ({
     (_, index) => (index / colors.length) * maxWidth,
   )
 
+  const handleColorChanged = useCallback((position: number, color: string) => {
+    onColorChanged?.(position, color)
+  }, [onColorChanged])
+
   const onFinish = useCallback(() => {
     'worklet'
 
+    translateY.value = withSpring(0)
+    scale.value = withSpring(1)
+
     if (!realTime) {
       const pickerPosition = translateX.value
-
-      translateY.value = withSpring(0)
-      scale.value = withSpring(1)
-
       let selectedColor = interpolateColor(translateX.value, inputRange, colors)
 
       if (Number.isInteger(Number(selectedColor))) {
@@ -116,34 +114,35 @@ const RNColorPicker = ({
         selectedColor = `rgba(${red},${green},${blue},${alpha})`
       }
 
-      onColorChanged?.(pickerPosition, selectedColor)
-    } else {
-      translateY.value = withSpring(0)
-      scale.value = withSpring(1)
+      if (onColorChanged) {
+        runOnJS(handleColorChanged)(pickerPosition, selectedColor)
+      }
     }
-  }, [])
+  }, [realTime, inputRange, colors, handleColorChanged])
 
-  const panGestureEvent = useAnimatedGestureHandler<
-    PanGestureHandlerGestureEvent,
-    { x: number }
-  >({
-    onStart: (_, context) => {
-      context.x = adjustedTranslateX.value
-    },
-    onActive: (event, context) => {
-      translateX.value = event.translationX + context.x
-    },
-    onFinish,
-  })
+  const startX = useSharedValue(0)
 
-  const tapGestureEvent =
-    useAnimatedGestureHandler<TapGestureHandlerGestureEvent>({
-      onStart: (event) => {
-        scale.value = withSpring(1.1)
-        translateX.value = withTiming(event.absoluteX - SELECTOR_WIDTH)
-      },
-      onEnd: onFinish,
+  const panGesture = Gesture.Pan()
+    .onStart(() => {
+      startX.value = adjustedTranslateX.value
     })
+    .onUpdate((event) => {
+      translateX.value = event.translationX + startX.value
+    })
+    .onEnd(() => {
+      onFinish()
+    })
+
+  const tapGesture = Gesture.Tap()
+    .onStart((event) => {
+      scale.value = withSpring(1.1)
+      translateX.value = withTiming(event.absoluteX - SELECTOR_WIDTH)
+    })
+    .onEnd(() => {
+      onFinish()
+    })
+
+  const composedGesture = Gesture.Race(tapGesture, panGesture)
 
   const animatedPickerStyle = useAnimatedStyle(() => {
     let backgroundColor = interpolateColor(translateX.value, inputRange, colors)
@@ -187,23 +186,19 @@ const RNColorPicker = ({
   })
 
   return (
-    <TapGestureHandler onGestureEvent={tapGestureEvent}>
-      <Animated.View>
-        <PanGestureHandler onGestureEvent={panGestureEvent}>
-          <Animated.View style={{ justifyContent: 'center' }}>
-            <LinearGradient
-              colors={colors}
-              start={start}
-              end={end}
-              style={pickerStyle}
-            />
-            <Animated.View style={[styles.picker, animatedPickerStyle]}>
-              {pickerIcon}
-            </Animated.View>
-          </Animated.View>
-        </PanGestureHandler>
+    <GestureDetector gesture={composedGesture}>
+      <Animated.View style={{ justifyContent: 'center' }}>
+        <LinearGradient
+          colors={colors}
+          start={start}
+          end={end}
+          style={pickerStyle}
+        />
+        <Animated.View style={[styles.picker, animatedPickerStyle]}>
+          {pickerIcon}
+        </Animated.View>
       </Animated.View>
-    </TapGestureHandler>
+    </GestureDetector>
   )
 }
 
