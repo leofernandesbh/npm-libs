@@ -41,15 +41,7 @@ class GeneralUtils {
   }
 
   static getAppVersion(fullVersion?: boolean) {
-    let appVersion = ''
-
-    if (Constants.expoConfig?.version) {
-      appVersion = Constants.expoConfig.version
-    } else if (Constants.manifest?.version) {
-      appVersion = Constants.manifest.version
-    } else if (Constants.manifest2?.extra?.expoClient?.version) {
-      appVersion = Constants.manifest2.extra.expoClient.version
-    }
+    let appVersion = Constants.expoConfig?.version ?? ''
 
     if (appVersion) {
       if (fullVersion) {

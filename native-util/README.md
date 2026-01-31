@@ -8,6 +8,12 @@
 
 [**LFSoftwares**](https://www.lfsoftwares.com.br/)
 
+## Requirements
+
+- Expo SDK 54+
+- React Native 0.81+
+- React 19.1+
+
 ## 1. Install
 
 ```sh
@@ -15,11 +21,11 @@ npm i @lfsoftwares/native-util
 ```
 ou
 ```sh
-yarn i @lfsoftwares/native-util
+yarn add @lfsoftwares/native-util
 ```
 ou
 ```sh
-pnpm i @lfsoftwares/native-util
+pnpm add @lfsoftwares/native-util
 ```
 
 ## 2. Dependencies
@@ -27,7 +33,7 @@ pnpm i @lfsoftwares/native-util
 > If you used a package manager other than npm in step 2, also use it in the command below
 
 ```sh
-npm i expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen moment react-native-format-currency
+npx expo install expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen moment react-native-format-currency
 ```
 
 ## 3. What's included?

@@ -1,6 +1,6 @@
 {
   "name": "@lfsoftwares/native-util",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Utility library for react native",
   "author": "Leandro Fernandes <lfsoftwares.solucoes@gmail.com>",
   "license": "MIT",
@@ -29,27 +29,27 @@
     "postpub:main": "echo 'package has been published'"
   },
   "devDependencies": {
-    "@types/react": "^18.2.22",
-    "expo-clipboard": "~4.3.1",
-    "expo-constants": "~14.4.2",
-    "expo-crypto": "~12.4.1",
-    "expo-device": "~5.4.0",
-    "expo-splash-screen": "~0.20.5",
+    "@types/react": "^19.0.0",
+    "expo-clipboard": "~8.0.8",
+    "expo-constants": "~18.0.8",
+    "expo-crypto": "~15.0.8",
+    "expo-device": "~8.0.8",
+    "expo-splash-screen": "~0.31.0",
     "moment": "^2.29.4",
-    "react": "^18.2.0",
-    "react-native": "^0.72.4",
+    "react": "^19.1.0",
+    "react-native": "^0.81.0",
     "react-native-format-currency": "^0.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "~5.9.2"
   },
   "peerDependencies": {
     "@types/react": "*",
-    "expo-clipboard": "*",
-    "expo-constants": "*",
-    "expo-crypto": "*",
-    "expo-device": "*",
-    "expo-splash-screen": "*",
-    "react": "*",
-    "react-native": "*",
+    "expo-clipboard": ">=8.0.0",
+    "expo-constants": ">=18.0.0",
+    "expo-crypto": ">=15.0.0",
+    "expo-device": ">=8.0.0",
+    "expo-splash-screen": ">=0.31.0",
+    "react": ">=19.0.0",
+    "react-native": ">=0.81.0",
     "react-native-format-currency": "*"
   }
 }
